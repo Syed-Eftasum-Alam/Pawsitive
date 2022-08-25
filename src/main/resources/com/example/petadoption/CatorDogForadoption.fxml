@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="621.0" prefWidth="808.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.petadoption.CatorDogForAdoption">
+   <children>
+      <ImageView fitHeight="78.0" fitWidth="200.0" layoutX="426.0" layoutY="161.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../img/ty80cp-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#752fdd" height="9.0" layoutX="161.0" layoutY="302.0" stroke="WHITE" strokeType="INSIDE" width="649.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#752fdd" height="9.0" layoutX="161.0" layoutY="321.0" stroke="WHITE" strokeType="INSIDE" width="649.0" />
+      <Button fx:id="Bcat" layoutX="254.0" layoutY="241.0" mnemonicParsing="false" onAction="#switchtoSceneCatSec" prefHeight="194.0" prefWidth="212.0" stylesheets="@../../../CSS/avatar.css" />
+      <Button fx:id="Bdog" layoutX="492.0" layoutY="241.0" mnemonicParsing="false" onAction="#switchtoSceneDogSec" prefHeight="194.0" prefWidth="212.0" stylesheets="@../../../CSS/avatar.css" textOverrun="CLIP" />
+      <Text fx:id="Cat" layoutX="335.0" layoutY="397.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cat">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="31.0" />
+         </font>
+      </Text>
+      <Text fx:id="Dog" layoutX="570.0" layoutY="397.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dog">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="31.0" />
+         </font>
+      </Text>
+      <Text fill="#69156f" layoutX="237.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Which one do you wanna adopt?" textAlignment="CENTER" wrappingWidth="458.2890625">
+         <font>
+            <Font name="Lucida Sans Italic" size="20.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="116.0" fitWidth="134.0" layoutX="297.0" layoutY="249.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../img/catto0zzz.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="95.0" fitWidth="129.0" layoutX="539.0" layoutY="255.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../img/doggZzz.png" />
+         </image>
+      </ImageView>
+      <VBox layoutY="53.0" prefHeight="569.0" prefWidth="174.0" style="-fx-background-color: #45B39D;">
+         <children>
+            <Button fx:id="profile" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchtoSceneProfile" prefHeight="72.0" prefWidth="174.0" stylesheets="@../../../CSS/Button.css" text="Profile" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../img/image.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </Button>
+            <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" stylesheets="@../../../CSS/Button.css" text="DashBoard" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../img/kisspng-market-research-competitor-analysis-business-marke-business-cartoon-creative-5aa3608faeda97.2828329315206565277162.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </Button>
+            <Button fx:id="activity" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchtoSceneSignin1" prefHeight="72.0" prefWidth="174.0" stylesheets="@../../../CSS/Button.css" text="Activity " textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../img/unnamed.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </Button>
+            <Button fx:id="RegPets" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchtoRegpets" prefHeight="72.0" prefWidth="174.0" stylesheets="@../../../CSS/Button.css" text="Registered Pets" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../img/kisspng-cat-food-kitten-dog-adorable-cat-png-5a78cf7fb447b3.6524993915178668797384.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </Button>
+         </children>
+      </VBox>
+      <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../img/kisspng-cat-food-kitten-dog-adorable-cat-png-5a78cf7fb447b3.6524993915178668797384.png" />
+         </image>
+      </ImageView>
+      <HBox alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="53.0" prefWidth="395.0" style="-fx-background-color: #30A58E;">
+         <children>
+            <ImageView fitHeight="57.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../img/dog-cat-bunny-bird-love-removebg-preview.png" />
+               </image>
+            </ImageView>
+            <Text nodeOrientation="LEFT_TO_RIGHT" strokeType="OUTSIDE" strokeWidth="0.0" text="4 PAWsitive" textAlignment="CENTER">
+               <font>
+                  <Font name="Harlow Solid Italic" size="18.0" />
+               </font>
+            </Text>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_RIGHT" layoutX="374.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="53.0" prefWidth="434.0" spacing="4.0" style="-fx-background-color: #30A58E;">
+         <children>
+            <Circle fill="#1fffdf" onMouseClicked="#minimize" radius="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+            <Circle fill="#ff1f1f" onMouseClicked="#exit" radius="10.0" stroke="#252424" strokeType="INSIDE" strokeWidth="0.0" />
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </HBox>
+      <Button fx:id="Logout" layoutX="731.0" layoutY="576.0" mnemonicParsing="false" onAction="#switchtoSceneHelloview" styleClass="button2" stylesheets="@../../../CSS/Button.css" text="Log out" />
+   </children>
+</AnchorPane>

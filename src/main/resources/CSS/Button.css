@@ -1,0 +1,76 @@
+.button{
+    -fx-background-color: #45B39D;
+    -fx-background-radius: 0 0 0 0;
+
+
+}
+.button:hover{
+    -fx-background-color: #76D7C4;
+    -fx-border-color: #CDD1D6 ;
+    -fx-border-width: 0px 0px 0px 3px;
+}
+.button:pressed{
+    -fx-background-color:#45B39D ;
+
+}
+.button:focused{
+    -fx-background-color: #45B39D;
+    -fx-border-color: #CDD1D6 ;
+    -fx-border-width: 0px 0px 0px 3px;
+}
+.shape{
+    -fx-background-radius: 10 10 10 10;
+    -fx-border-color: #3CD6B8;
+
+}
+.button2
+{
+    -fx-background-color: #FDFEFE;
+    -fx-background-radius: 10 10 10 10;
+    -fx-border-radius: 30 30 30 30;
+    -fx-border-width: 3;
+    -fx-border-color: white;
+    -fx-effect: dropshadow(three-pass-box,#E5EAE9,0,0,0,5);
+
+}
+.button2:hover
+
+{
+    -fx-background-color: #E7EAE8;
+    -fx-background-radius: 10 10 10 10;
+    -fx-border-radius: 10 10 10 10;
+
+    -fx-effect: dropshadow(three-pass-box,white,10,0,0,0);
+    -fx-border-width: 2;
+
+}
+.button2:pressed
+{
+    -fx-background-color: #FDFEFE;
+    -fx-background-radius: 10 10 10 10;
+    -fx-border-radius: 10 10 10 10;
+    -fx-border-width: 3;
+    -fx-border-color: white;
+    -fx-effect: dropshadow(three-pass-box,#E5EAE9,0,0,0,5);
+}
+.button2:focused{
+
+    -fx-background-color:  White;
+    -fx-background-radius: 10 10 10 10;
+    -fx-border-radius: 10 10 10 10;
+
+    -fx-effect: dropshadow(three-pass-box,white,10,0,0,0);
+    -fx-border-width: 2;
+    -fx-border-color: black;
+    -fx-border-width: 0px 0px 0px 0px;
+
+}
+.imageView{
+    -fx-background-color: #FDFEFE;
+    -fx-background-radius: 10 10 10 10;
+    -fx-border-radius: 30 30 30 30;
+    -fx-border-width: 3;
+    -fx-border-color: white;
+    -fx-effect: dropshadow(three-pass-box,#E5EAE9,0,0,0,5);
+
+}

@@ -1,0 +1,58 @@
+.button
+{
+    -fx-background-color: #FDFEFE;
+    -fx-background-radius: 30 30 30 30;
+    -fx-border-radius: 30 30 30 30;
+    -fx-border-width: 5;
+    -fx-border-color: purple;
+
+}
+.button:hover
+
+{
+    -fx-background-color: #BB8FCE;
+    -fx-background-radius: 30 30 30 30;
+    -fx-effect: dropshadow(three-pass-box,white,10,0,0,0);
+    -fx-border-width: 0;
+
+}
+.button:pressed
+{
+    -fx-background-color: #8E44AD;
+    -fx-background-radius: 30 30 30 30;
+    -fx-effect: dropshadow(three-pass-box,purple,10,0,0,0);
+}
+.pane{
+
+    -fx-border-color: purple;
+    -fx-background-radius: 30 30 30 30;
+    -fx-border-radius: 30 30 30 30;
+    -fx-border-width: 5;
+}
+.pane2{
+    -fx-background-color: #061157;
+    -fx-border-color: orange;
+    -fx-background-radius: 30 30 30 30;
+    -fx-border-radius: 30 30 30 30;
+    -fx-border-width: 5;
+
+}
+.pane3{
+    -fx-background-color:#48C9B0;
+    /*-fx-border-color: purple;*/
+    -fx-background-radius: 30 0 0 30;
+    /*-fx-border-radius: 30 30 30 30;*/
+    -fx-border-width: 5;
+
+}
+.button2
+{
+    -fx-background-color: #FDFEFE;
+    /*-fx-background-radius: 30 30 30 30;*/
+    /*-fx-border-radius: 30 30 30 30;*/
+    /*-fx-border-width: 5;*/
+    /*-fx-border-color: purple;*/
+
+}
+
+
