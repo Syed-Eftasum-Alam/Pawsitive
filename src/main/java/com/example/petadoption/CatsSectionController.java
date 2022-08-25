@@ -138,6 +138,7 @@ public class CatsSectionController implements Initializable {
         for(int i = list.size(); i < 6; i++) {
             rectangles[i].setVisible(false);
         }
+        System.out.println("\n");
 
         for(int i = 0; i < list.size(); i++) {
             rectangles[i].setFill(new ImagePattern(new Image("file:" + list.get(i).getAnimalPic())));
