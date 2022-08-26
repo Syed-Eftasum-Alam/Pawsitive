@@ -14,6 +14,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -72,6 +73,8 @@ public class RegisteredPetsController implements Initializable {
     private AnchorPane aPane;
     @FXML
     private AnchorPane maInPane;
+    @FXML
+    private Rectangle imgShow;
 
     @FXML
     void exit(MouseEvent event) {
@@ -165,6 +168,7 @@ public class RegisteredPetsController implements Initializable {
         txtbreed.setText(p.getBreedName());
         txtage.setText(p.getAge());
         txtfood.setText(p.getFoodhabit());
+        //imgShow.setFill(new ImagePattern(new Image("file:"+p.getAnimalPic())));
 
         // next button
         if(counter + 1 == petList.size())
@@ -196,6 +200,8 @@ public class RegisteredPetsController implements Initializable {
         txtname.setText(HelloApplication.profile.getName());
         txtusername.setText(HelloApplication.profile.getUsername());
         profilepic.setFill(new ImagePattern(new Image("file:" + HelloApplication.profile.getProfilePic())));
+
+
 
         // loading data
         petList = new ArrayList<>();

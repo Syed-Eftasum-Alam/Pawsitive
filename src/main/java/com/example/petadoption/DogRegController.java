@@ -14,6 +14,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import utils.Utils;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -21,6 +22,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class DogRegController {
+    private File file;
 
     @FXML
     private Button Back3;
@@ -78,7 +80,7 @@ public class DogRegController {
 
         }
         else{
-            warning.setText("");
+            file=selectedFile;
         }
 
 
@@ -104,6 +106,7 @@ public class DogRegController {
     void DoginfoSave(ActionEvent event) throws IOException {
 
         AnimalType="dog";
+        boolean isEmpty=false;
 
         BufferedWriter f = new BufferedWriter(new FileWriter("dog.txt", true));
         String BreedName=tfBname.getText();
@@ -121,16 +124,47 @@ public class DogRegController {
 
         } else if (FoodHabit.isEmpty()) {
             Fiv.setText("*");
+        } if(BreedName.isEmpty()){
+            Biv.setText("*");
+            isEmpty=true;
         }
         else {
-            Animal dog= new Animal(BreedName,PetName,Age,FoodHabit,AnimalType,HelloApplication.profile.getUsername());
+            Biv.setText("");
+        }
+        if (PetName.isEmpty()) {
+            Piv.setText("*");
+            isEmpty=true;
+        }
+        else {
+            Piv.setText("");
+        }
+        if (Age.isEmpty()) {
+            Aiv.setText("*");
+            isEmpty=true;
+        }
+        else {
+            Aiv.setText("");
+        }
+        if (FoodHabit.isEmpty()) {
+            Fiv.setText("*");
+            isEmpty=true;
+        }
+        else {
+            Fiv.setText("");
+
+        }
+        if(!isEmpty) {
+
+            String profilePic = Utils.upload(file, "uploads/img/");
+            Animal dog= new Animal(BreedName,PetName,Age,FoodHabit,AnimalType,HelloApplication.profile.getUsername(),profilePic);
 
             f.write(BreedName+"##");
             f.write(PetName+"##");
             f.write(Age+"##");
             f.write(FoodHabit+"##");
             f.write(AnimalType+"##");
-            f.write(HelloApplication.profile.getUsername());
+            f.write(HelloApplication.profile.getUsername()+"##");
+            f.write(profilePic);
             f.newLine();
             f.close();
 

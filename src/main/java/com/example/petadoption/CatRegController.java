@@ -147,8 +147,9 @@ public class CatRegController {
 
         }
         if (!isEmpty){
-            Animal cat= new Animal(BreedName,PetName,Age,FoodHabit,AnimalType,HelloApplication.profile.getUsername());
+//            Animal cat= new Animal(BreedName,PetName,Age,FoodHabit,AnimalType,HelloApplication.profile.getUsername());
             String profilePic = Utils.upload(file, "uploads/img/");
+            Animal Cats= new Animal(BreedName,PetName,Age,FoodHabit,AnimalType,HelloApplication.profile.getName(),profilePic);
 
             f.write(BreedName+"##");
             f.write(PetName+"##");
