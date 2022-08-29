@@ -3,9 +3,7 @@ package com.example.petadoption;
 import Classes.Animal;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -28,7 +26,7 @@ import java.util.HashMap;
 import java.util.ResourceBundle;
 
 public class RegisteredPetsController implements Initializable {
-    private HashMap<String, Animal>pets;
+    private HashMap<String, Animal> pets;
     private ArrayList<Animal> petList;
     private int counter;
 
@@ -112,18 +110,18 @@ public class RegisteredPetsController implements Initializable {
         String food = pasts[3];
         String type = pasts[4];
         String owner = pasts[5];
-        return  new Animal(breed, name, age, food, type, owner);
+        return new Animal(breed, name, age, food, type, owner);
     }
 
 
     private void LoadpetsData() {
-        try{
+        try {
             // Reads dog info
             BufferedReader br = new BufferedReader(new FileReader("dog.txt"));
             String line;
-            while((line = br.readLine()) != null) {
+            while ((line = br.readLine()) != null) {
                 Animal a = genANumal(line);
-                if(a.getOwner().equalsIgnoreCase(HelloApplication.profile.getUsername())) {
+                if (a.getOwner().equalsIgnoreCase(HelloApplication.profile.getUsername())) {
                     pets.put(a.getOwner(), a);
                     petList.add(a);
                 }
@@ -132,16 +130,16 @@ public class RegisteredPetsController implements Initializable {
 
             // Reads Cat info
             br = new BufferedReader(new FileReader("cat.txt"));
-            while((line = br.readLine()) != null) {
+            while ((line = br.readLine()) != null) {
                 Animal a = genANumal(line);
-                if(a.getOwner().equalsIgnoreCase(HelloApplication.profile.getUsername())) {
+                if (a.getOwner().equalsIgnoreCase(HelloApplication.profile.getUsername())) {
                     pets.put(a.getOwner(), a);
                     petList.add(a);
                 }
             }
             br.close();
+        } catch (IOException exception) {
         }
-        catch (IOException exception){}
     }
 
 
@@ -157,15 +155,15 @@ public class RegisteredPetsController implements Initializable {
         //imgShow.setFill(new ImagePattern(new Image("file:"+p.getAnimalPic())));
 
         // next button
-        if(counter + 1 == petList.size())
+        if (counter + 1 == petList.size())
             after.setDisable(true);
-        else if(counter + 1 < petList.size())
+        else if (counter + 1 < petList.size())
             after.setDisable(false);
 
         // Previous Button
-        if(counter > 0)
+        if (counter > 0)
             previous.setDisable(false);
-        else if(counter - 1 <= 0)
+        else if (counter - 1 <= 0)
             previous.setDisable(true);
     }
 
@@ -188,20 +186,18 @@ public class RegisteredPetsController implements Initializable {
         profilepic.setFill(new ImagePattern(new Image("file:" + HelloApplication.profile.getProfilePic())));
 
 
-
         // loading data
         petList = new ArrayList<>();
-        pets=new HashMap<>();
+        pets = new HashMap<>();
         LoadpetsData();
 
         // Set first data
         counter = 0;
-        if(!(petList.size() == 0)) {
+        if (!(petList.size() == 0)) {
             aPane.setVisible(false);
             maInPane.setVisible(true);
             updateData(counter);
-        }
-        else {
+        } else {
             maInPane.setVisible(false);
             aPane.setVisible(true);
         }

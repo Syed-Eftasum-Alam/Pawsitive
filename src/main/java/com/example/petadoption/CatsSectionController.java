@@ -3,10 +3,7 @@ package com.example.petadoption;
 import Classes.Animal;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
@@ -20,7 +17,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-import java.util.Scanner;
 
 public class CatsSectionController implements Initializable {
 
@@ -52,7 +48,7 @@ public class CatsSectionController implements Initializable {
     @FXML
     private Rectangle profile6;
 
-//     Data
+    //     Data
     private ArrayList<Animal> list;
 
 
@@ -67,22 +63,25 @@ public class CatsSectionController implements Initializable {
 
         HelloApplication.primaryStage.setIconified(true);
     }
+
     @FXML
-    public void switchtoSceneProfile(ActionEvent e)throws IOException {
+    public void switchtoSceneProfile(ActionEvent e) throws IOException {
         Utils.changeScene("Profile.fxml");
 
     }
+
     @FXML
-    public void switchtoSceneSignin1(ActionEvent e)throws IOException {
+    public void switchtoSceneSignin1(ActionEvent e) throws IOException {
         Utils.changeScene("Sign1st.fxml");
 
     }
+
     @FXML
-    void switchtoRegpets(ActionEvent e) throws IOException{
+    void switchtoRegpets(ActionEvent e) throws IOException {
         Utils.changeScene("RegisteredPETS.fxml");
     }
 
-    public void switchtoSceneHelloview(ActionEvent e)throws IOException {
+    public void switchtoSceneHelloview(ActionEvent e) throws IOException {
         Utils.changeScene("hello-view.fxml");
     }
 
@@ -100,26 +99,27 @@ public class CatsSectionController implements Initializable {
         try {
             BufferedReader br = new BufferedReader(new FileReader(path));
             String line;
-            while((line=br.readLine()) != null) {
+            while ((line = br.readLine()) != null) {
                 list.add(getAnimal(line));
             }
             br.close();
-        } catch (Exception e) {}
+        } catch (Exception e) {
+        }
     }
 
-    private void Init(){
+    private void Init() {
         list = new ArrayList<>();
         readData("cat.txt");
         readData("dog.txt");
 
         // array
         Rectangle[] rectangles = {profile1, profile2, profile3, profile4, profile5, profile6};
-        for(int i = list.size(); i < 6; i++) {
+        for (int i = list.size(); i < 6; i++) {
             rectangles[i].setVisible(false);
         }
         System.out.println("\n");
 
-        for(int i = 0; i < list.size(); i++) {
+        for (int i = 0; i < list.size(); i++) {
             rectangles[i].setFill(new ImagePattern(new Image("file:" + list.get(i).getAnimalPic())));
         }
     }

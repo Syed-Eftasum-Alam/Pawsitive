@@ -4,32 +4,29 @@ import Classes.Animal;
 import Classes.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import utils.Utils;
 
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.ResourceBundle;
+import java.util.Scanner;
 
-public class HelloController implements Initializable{
+public class HelloController implements Initializable {
     HashMap<User, ArrayList<Animal>> DB;
-    ArrayList<User>DBuser;
+    ArrayList<User> DBuser;
 
 
     @FXML
@@ -94,10 +91,9 @@ public class HelloController implements Initializable{
     private TextField tfshowPass;
 
 
-
     @FXML
-    void changevisibility(ActionEvent e){
-        if(ChSP.isSelected()){
+    void changevisibility(ActionEvent e) {
+        if (ChSP.isSelected()) {
             tfshowPass.setText(pTF.getText());
             tfshowPass.setVisible(true);
             pTF.setVisible(false);
@@ -110,60 +106,57 @@ public class HelloController implements Initializable{
     }
 
 
-
-
-
-
-
-    public void switchtoSceneSignup(ActionEvent e)throws IOException {
+    public void switchtoSceneSignup(ActionEvent e) throws IOException {
         Utils.changeScene("Signup.fxml");
     }
-    public void switchtoSceneHelloview(ActionEvent e)throws IOException {
+
+    public void switchtoSceneHelloview(ActionEvent e) throws IOException {
         Utils.changeScene("hello-view.fxml");
     }
-    public void switchtoSceneSignin1(ActionEvent e)throws IOException {
+
+    public void switchtoSceneSignin1(ActionEvent e) throws IOException {
         Utils.changeScene("Sign1st.fxml");
     }
-    public void switchtoSceneProfile(ActionEvent e)throws IOException {
 
-        String name="";
-        String username="";
-        String password="";
-        String email="";
-        String location="";
-        String contact="";
-        String profilePic="";
-        File f= new File("data.txt");
-        Scanner sc= new Scanner(f);
-        String USername=uTF.getText();
-        String pass=pTF.getText();
-        String ShowPass= tfshowPass.getText();
+    public void switchtoSceneProfile(ActionEvent e) throws IOException {
 
-        String line=" ";
-        int flag=0;
+        String name = "";
+        String username = "";
+        String password = "";
+        String email = "";
+        String location = "";
+        String contact = "";
+        String profilePic = "";
+        File f = new File("data.txt");
+        Scanner sc = new Scanner(f);
+        String USername = uTF.getText();
+        String pass = pTF.getText();
+        String ShowPass = tfshowPass.getText();
 
-        while (sc.hasNext()){
-            line=sc.nextLine();
-            String parts[]=line.split("##");
-            name=parts[0];
-            username=parts[1];
-            password=parts[2];
-            email=parts[3];
-            location=parts[4];
-            contact=parts[5];
-            profilePic=parts[6];
-            if(username.equals(USername)&&(password.equals(pass))||password.equals(ShowPass)){
+        String line = " ";
+        int flag = 0;
+
+        while (sc.hasNext()) {
+            line = sc.nextLine();
+            String parts[] = line.split("##");
+            name = parts[0];
+            username = parts[1];
+            password = parts[2];
+            email = parts[3];
+            location = parts[4];
+            contact = parts[5];
+            profilePic = parts[6];
+            if (username.equals(USername) && (password.equals(pass)) || password.equals(ShowPass)) {
                 System.out.printf(profilePic);
-                HelloApplication.profile= new User(name,username,password,email,location,contact, profilePic);
+                HelloApplication.profile = new User(name, username, password, email, location, contact, profilePic);
 
                 Utils.changeScene("Profile.fxml");
-            }
-            else if(USername.isEmpty()|| (pass.isEmpty()&&ShowPass.isEmpty())){
-                flag=-1;
+            } else if (USername.isEmpty() || (pass.isEmpty() && ShowPass.isEmpty())) {
+                flag = -1;
             }
         }
 
-        if (flag==-1) {
+        if (flag == -1) {
 
             Wrong.setText("Please Enter the Information");
 
@@ -174,19 +167,21 @@ public class HelloController implements Initializable{
         }
 
 
-
     }
-    public void switchtoSceneCatReg(ActionEvent e)throws IOException {
-        AnimalType ="cat";
+
+    public void switchtoSceneCatReg(ActionEvent e) throws IOException {
+        AnimalType = "cat";
 
         Utils.changeScene("CatReg.fxml");
     }
-    public void switchtoSceneCatorDog(ActionEvent e)throws IOException {
+
+    public void switchtoSceneCatorDog(ActionEvent e) throws IOException {
 
         Utils.changeScene("CatorDog.fxml");
     }
-    public void switchtoSceneDogReg(ActionEvent e)throws IOException {
-        AnimalType ="dog";
+
+    public void switchtoSceneDogReg(ActionEvent e) throws IOException {
+        AnimalType = "dog";
 
         Utils.changeScene("DogReg.fxml");
     }
@@ -203,10 +198,11 @@ public class HelloController implements Initializable{
     }
 
     private void handleFile(File selectedFile) {
-        if(!selectedFile.getName().endsWith(".jpg")&&!selectedFile.getName().endsWith(".png")){
+        if (!selectedFile.getName().endsWith(".jpg") && !selectedFile.getName().endsWith(".png")) {
             warning.setText("File not Supported");
         }
     }
+
     @FXML
     void exit(MouseEvent event) {
         System.exit(0);
@@ -214,7 +210,7 @@ public class HelloController implements Initializable{
 
     @FXML
     void minimize(MouseEvent e) {
-        stage=(Stage)((Node)e.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
         stage.setIconified(true);
     }
 

@@ -2,14 +2,9 @@ package com.example.petadoption;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 import utils.Utils;
 
 import java.io.IOException;
@@ -41,11 +36,11 @@ public class CatorDogForAdoption {
     private Button RegPets;
 
     @FXML
-    void switchtoRegpets(ActionEvent e) throws IOException{
+    void switchtoRegpets(ActionEvent e) throws IOException {
         Utils.changeScene("RegisteredPETS.fxml");
     }
 
-    public void switchtoSceneHelloview(ActionEvent e)throws IOException {
+    public void switchtoSceneHelloview(ActionEvent e) throws IOException {
         Utils.changeScene("hello-view.fxml");
     }
 
@@ -63,24 +58,24 @@ public class CatorDogForAdoption {
     }
 
     @FXML
-    public void switchtoSceneCatSec(ActionEvent e)throws IOException {
-        AnimalType ="cat";
+    public void switchtoSceneCatSec(ActionEvent e) throws IOException {
+        AnimalType = "cat";
         Utils.changeScene("CatsSection.fxml");
     }
 
     @FXML
-    public void switchtoSceneDogSec(ActionEvent e)throws IOException {
-        AnimalType ="dog";
+    public void switchtoSceneDogSec(ActionEvent e) throws IOException {
+        AnimalType = "dog";
         Utils.changeScene("DogsSection.fxml");
     }
 
     @FXML
-    public void switchtoSceneProfile(ActionEvent e)throws IOException {
+    public void switchtoSceneProfile(ActionEvent e) throws IOException {
         Utils.changeScene("Profile.fxml");
     }
 
     @FXML
-    public void switchtoSceneSignin1(ActionEvent e)throws IOException {
+    public void switchtoSceneSignin1(ActionEvent e) throws IOException {
         Utils.changeScene("Sign1st.fxml");
     }
 }
