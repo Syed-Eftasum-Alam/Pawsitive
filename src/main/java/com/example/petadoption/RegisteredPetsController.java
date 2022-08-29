@@ -3,11 +3,7 @@ package com.example.petadoption;
 import Classes.Animal;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
@@ -16,7 +12,7 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
+import utils.Utils;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -27,14 +23,10 @@ import java.util.HashMap;
 import java.util.ResourceBundle;
 
 public class RegisteredPetsController implements Initializable {
-    private HashMap<String, Animal>pets;
+    private HashMap<String, Animal> pets;
     private ArrayList<Animal> petList;
     private int counter;
 
-    @FXML
-    private Parent root;
-    private Scene scene;
-    private Stage stage;
     @FXML
     private Button RegPets;
 
@@ -84,38 +76,22 @@ public class RegisteredPetsController implements Initializable {
 
     @FXML
     void minimize(MouseEvent e) {
-
         HelloApplication.primaryStage.setIconified(true);
     }
 
     @FXML
-    public void switchtoSceneHelloview(ActionEvent e)throws IOException {
-        Parent root= FXMLLoader.load(getClass().getResource("hello-view.fxml")) ;
-
-        Scene scene=new Scene(root);
-        HelloApplication.primaryStage.setScene(scene);
-        HelloApplication.primaryStage.show();
-
+    public void switchtoSceneHelloview(ActionEvent e) throws IOException {
+        Utils.changeScene("hello-view.fxml");
     }
 
     @FXML
     void switchtoSceneProfile(ActionEvent e) throws IOException {
-        Parent root= FXMLLoader.load(getClass().getResource("Profile.fxml")) ;
-
-        Scene scene=new Scene(root);
-        HelloApplication.primaryStage.setScene(scene);
-        HelloApplication.primaryStage.show();
-
+        Utils.changeScene("Profile.fxml");
     }
 
     @FXML
     void switchtoSceneSignin1(ActionEvent e) throws IOException {
-        Parent root= FXMLLoader.load(getClass().getResource("Sign1st.fxml")) ;
-        stage=(Stage)((Node)e.getSource()).getScene().getWindow();
-        scene=new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-
+        Utils.changeScene("Sign1st.fxml");
     }
 
     private Animal genANumal(String line) {
@@ -126,36 +102,34 @@ public class RegisteredPetsController implements Initializable {
         String food = pasts[3];
         String type = pasts[4];
         String owner = pasts[5];
-        return  new Animal(breed, name, age, food, type, owner);
+        String proPic = pasts[6];
+        return new Animal(breed, name, age, food, type, owner, proPic);
     }
 
 
-    private void LoadpetsData() {
-        try{
-            // Reads dog info
-            BufferedReader br = new BufferedReader(new FileReader("dog.txt"));
+    private void readAnimal(String path) {
+        try {
+            // Reads animal info
+            BufferedReader br = new BufferedReader(new FileReader(path));
             String line;
-            while((line = br.readLine()) != null) {
+            while ((line = br.readLine()) != null) {
                 Animal a = genANumal(line);
-                if(a.getOwner().equalsIgnoreCase(HelloApplication.profile.getUsername())) {
+                if (a.getOwner().equalsIgnoreCase(HelloApplication.profile.getUsername())) {
                     pets.put(a.getOwner(), a);
                     petList.add(a);
                 }
             }
             br.close();
-
-            // Reads Cat info
-            br = new BufferedReader(new FileReader("cat.txt"));
-            while((line = br.readLine()) != null) {
-                Animal a = genANumal(line);
-                if(a.getOwner().equalsIgnoreCase(HelloApplication.profile.getUsername())) {
-                    pets.put(a.getOwner(), a);
-                    petList.add(a);
-                }
-            }
-            br.close();
+        } catch (IOException ignored) {
         }
-        catch (IOException exception){}
+    }
+
+    private void LoadpetsData() {
+        // Reads dog info
+        readAnimal("dog.txt");
+
+        // Reads Cat info
+        readAnimal("cat.txt");
     }
 
 
@@ -168,18 +142,18 @@ public class RegisteredPetsController implements Initializable {
         txtbreed.setText(p.getBreedName());
         txtage.setText(p.getAge());
         txtfood.setText(p.getFoodhabit());
-        //imgShow.setFill(new ImagePattern(new Image("file:"+p.getAnimalPic())));
+        imgShow.setFill(new ImagePattern(new Image("file:" + p.getAnimalPic())));
 
         // next button
-        if(counter + 1 == petList.size())
+        if (counter + 1 == petList.size())
             after.setDisable(true);
-        else if(counter + 1 < petList.size())
+        else if (counter + 1 < petList.size())
             after.setDisable(false);
 
         // Previous Button
-        if(counter > 0)
+        if (counter > 0)
             previous.setDisable(false);
-        else if(counter - 1 <= 0)
+        else if (counter - 1 <= 0)
             previous.setDisable(true);
     }
 
@@ -201,24 +175,20 @@ public class RegisteredPetsController implements Initializable {
         txtusername.setText(HelloApplication.profile.getUsername());
         profilepic.setFill(new ImagePattern(new Image("file:" + HelloApplication.profile.getProfilePic())));
 
-
-
         // loading data
         petList = new ArrayList<>();
-        pets=new HashMap<>();
+        pets = new HashMap<>();
         LoadpetsData();
 
         // Set first data
         counter = 0;
-        if(!(petList.size() == 0)) {
+        if (!(petList.size() == 0)) {
             aPane.setVisible(false);
             maInPane.setVisible(true);
             updateData(counter);
-        }
-        else {
+        } else {
             maInPane.setVisible(false);
             aPane.setVisible(true);
         }
-
     }
 }

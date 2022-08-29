@@ -2,11 +2,9 @@ package com.example.petadoption;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
+import utils.Utils;
 
 import java.io.IOException;
 
@@ -28,36 +26,21 @@ public class DogsSectionController {
 
     @FXML
     void minimize(MouseEvent e) {
-
         HelloApplication.primaryStage.setIconified(true);
     }
+
     @FXML
-    public void switchtoSceneProfile(ActionEvent e)throws IOException {
-
-        Parent root= FXMLLoader.load(getClass().getResource("Profile.fxml")) ;
-
-        Scene scene=new Scene(root);
-        HelloApplication.primaryStage.setScene(scene);
-        HelloApplication.primaryStage.show();
-
+    public void switchtoSceneProfile(ActionEvent e) throws IOException {
+        Utils.changeScene("Profile.fxml");
     }
+
     @FXML
-    public void switchtoSceneSignin1(ActionEvent e)throws IOException {
-
-        Parent root= FXMLLoader.load(getClass().getResource("Sign1st.fxml")) ;
-
-        Scene scene=new Scene(root);
-        HelloApplication.primaryStage.setScene(scene);
-        HelloApplication.primaryStage.show();
-
+    public void switchtoSceneSignin1(ActionEvent e) throws IOException {
+        Utils.changeScene("Sign1st.fxml");
     }
+
     @FXML
-    void switchtoRegpets(ActionEvent e) throws IOException{
-        Parent root= FXMLLoader.load(getClass().getResource("RegisteredPETS.fxml")) ;
-
-        Scene scene=new Scene(root);
-        HelloApplication.primaryStage.setScene(scene);
-        HelloApplication.primaryStage.show();
-
+    void switchtoRegpets(ActionEvent e) throws IOException {
+        Utils.changeScene("RegisteredPETS.fxml");
     }
 }

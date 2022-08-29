@@ -3,16 +3,11 @@ package com.example.petadoption;
 import Classes.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
-import javafx.stage.Stage;
 import utils.Utils;
 
 import java.io.BufferedWriter;
@@ -74,7 +69,6 @@ public class SignUPController {
     private Text uIV;
 
 
-
     @FXML
     void exit(MouseEvent event) {
         System.exit(0);
@@ -96,8 +90,7 @@ public class SignUPController {
     private void handleFile(File selectedFile) {
         if (!selectedFile.getName().endsWith(".jpg") && !selectedFile.getName().endsWith(".png")) {
             warning.setText("File not Supported");
-        }
-        else
+        } else
             file = selectedFile;
     }
 
@@ -109,12 +102,7 @@ public class SignUPController {
 
     @FXML
     public void switchtoSceneHelloview(ActionEvent e) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
-
-        Scene scene = new Scene(root);
-        HelloApplication.primaryStage.setScene(scene);
-        HelloApplication.primaryStage.show();
-
+        Utils.changeScene("hello-view.fxml");
     }
 
     @FXML
@@ -137,48 +125,42 @@ public class SignUPController {
             nIV.setText("*");
             check2 = true;
 
-        }
-        else {
+        } else {
             nIV.setText("");
         }
         if (Username.isEmpty()) {
             uIV.setText("*");
             check2 = true;
 
-        }
-        else {
+        } else {
             uIV.setText("");
         }
         if (password.isEmpty()) {
             pIV.setText("*");
             check2 = true;
 
-        }
-        else {
+        } else {
             pIV.setText("");
         }
         if (Email.isEmpty()) {
             eIV.setText("*");
             check2 = true;
 
-        }
-        else {
+        } else {
             eIV.setText("");
         }
         if (location.isEmpty()) {
             lIV.setText("*");
             check2 = true;
 
-        }
-        else {
+        } else {
             lIV.setText("");
         }
         if (contact.isEmpty()) {
             cIV.setText("*");
             check2 = true;
 
-        }
-        else {
+        } else {
             cIV.setText("");
         }
         if (!check2) {
@@ -216,16 +198,9 @@ public class SignUPController {
                 u.put(Email, u1);
 
                 f.close();
-                Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
-                Scene scene = new Scene(root);
-                HelloApplication.primaryStage.setScene(scene);
-                HelloApplication.primaryStage.show();
+                Utils.changeScene("hello-view.fxml");
             }
-
-
         }
-
-
     }
 }
 

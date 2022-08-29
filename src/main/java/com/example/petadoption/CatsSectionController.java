@@ -3,15 +3,13 @@ package com.example.petadoption;
 import Classes.Animal;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
+import utils.Utils;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -19,7 +17,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-import java.util.Scanner;
 
 public class CatsSectionController implements Initializable {
 
@@ -51,65 +48,43 @@ public class CatsSectionController implements Initializable {
     @FXML
     private Rectangle profile6;
 
-//     Data
+    @FXML
+    private Button back1;
+
+    @FXML
+    private Button next1;
+
+    // Data
+    private int count;
     private ArrayList<Animal> list;
-
-
-    @FXML
-    void exit(MouseEvent event) {
-        System.exit(0);
-
-    }
-
-    @FXML
-    void minimize(MouseEvent e) {
-
-        HelloApplication.primaryStage.setIconified(true);
-    }
-    @FXML
-    public void switchtoSceneProfile(ActionEvent e)throws IOException {
-
-        Parent root= FXMLLoader.load(getClass().getResource("Profile.fxml")) ;
-
-        Scene scene=new Scene(root);
-        HelloApplication.makeDraggable(scene);
-        HelloApplication.primaryStage.setScene(scene);
-        HelloApplication.primaryStage.show();
-
-    }
-    @FXML
-    public void switchtoSceneSignin1(ActionEvent e)throws IOException {
-
-        Parent root= FXMLLoader.load(getClass().getResource("Sign1st.fxml")) ;
-
-        Scene scene=new Scene(root);
-        HelloApplication.makeDraggable(scene);
-        HelloApplication.primaryStage.setScene(scene);
-        HelloApplication.primaryStage.show();
-
-    }
-    @FXML
-    void switchtoRegpets(ActionEvent e) throws IOException{
-        Parent root= FXMLLoader.load(getClass().getResource("RegisteredPETS.fxml")) ;
-
-        Scene scene=new Scene(root);
-        HelloApplication.makeDraggable(scene);
-        HelloApplication.primaryStage.setScene(scene);
-        HelloApplication.primaryStage.show();
-    }
-
-    public void switchtoSceneHelloview(ActionEvent e)throws IOException {
-        Parent root= FXMLLoader.load(getClass().getResource("hello-view.fxml")) ;
-
-        Scene scene=new Scene(root);
-        HelloApplication.makeDraggable(scene);
-        HelloApplication.primaryStage.setScene(scene);
-        HelloApplication.primaryStage.show();
-    }
+    Rectangle[] rectangles;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Init();
+    }
+
+    // added data to rectangle
+    private void refreshData(int currentPosition, boolean forward) {
+        int j = 0;
+        if(forward) {
+            for (int i = currentPosition; i < list.size() && i < currentPosition + 6; i++, j++, count++) {
+                rectangles[j].setFill(new ImagePattern(new Image("file:" + list.get(i).getAnimalPic())));
+            }
+        } else {
+            for (int i = currentPosition; i >  -1 && i > currentPosition - 6; i--, j++, count--) {
+                rectangles[j].setFill(new ImagePattern(new Image("file:" + list.get(i).getAnimalPic())));
+            }
+        }
+        // updating button state
+        changeButtonState();
+    }
+
+    // Refresh button state based on how many element remains
+    private void changeButtonState() {
+        int rem = list.size() - count;
+        back1.setDisable(rem > 7 || count < 7);
+        next1.setDisable(rem < 7 || count > list.size());
     }
 
     private Animal getAnimal(String str) {
@@ -121,27 +96,74 @@ public class CatsSectionController implements Initializable {
         try {
             BufferedReader br = new BufferedReader(new FileReader(path));
             String line;
-            while((line=br.readLine()) != null) {
+            while ((line = br.readLine()) != null) {
                 list.add(getAnimal(line));
             }
             br.close();
-        } catch (Exception e) {}
+        } catch (Exception ignored) {}
     }
 
-    private void Init(){
+    private void Init() {
+        // data init
+        count = 0;
         list = new ArrayList<>();
+        rectangles = new Rectangle[]{profile1, profile2, profile3, profile4, profile5, profile6};
+
+        // load data
         readData("cat.txt");
         readData("dog.txt");
 
-        // array
-        Rectangle[] rectangles = {profile1, profile2, profile3, profile4, profile5, profile6};
-        for(int i = list.size(); i < 6; i++) {
+        // Button Configs
+        changeButtonState();
+
+        // data box config
+        for (int i = list.size(); i < 6; i++) {
             rectangles[i].setVisible(false);
         }
-        System.out.println("\n");
 
-        for(int i = 0; i < list.size(); i++) {
-            rectangles[i].setFill(new ImagePattern(new Image("file:" + list.get(i).getAnimalPic())));
-        }
+        // refresh data
+        refreshData(count, true);
+    }
+
+    @FXML
+    void nextActrion(ActionEvent event) {
+        refreshData(count, true);
+    }
+
+    @FXML
+    void backAction(ActionEvent event) {
+        refreshData(count, false);
+    }
+
+
+    @FXML
+    void exit(MouseEvent event) {
+        System.exit(0);
+    }
+
+    @FXML
+    void minimize(MouseEvent e) {
+        HelloApplication.primaryStage.setIconified(true);
+    }
+
+    @FXML
+    public void switchtoSceneProfile(ActionEvent e) throws IOException {
+        Utils.changeScene("Profile.fxml");
+
+    }
+
+    @FXML
+    public void switchtoSceneSignin1(ActionEvent e) throws IOException {
+        Utils.changeScene("Sign1st.fxml");
+
+    }
+
+    @FXML
+    void switchtoRegpets(ActionEvent e) throws IOException {
+        Utils.changeScene("RegisteredPETS.fxml");
+    }
+
+    public void switchtoSceneHelloview(ActionEvent e) throws IOException {
+        Utils.changeScene("hello-view.fxml");
     }
 }
