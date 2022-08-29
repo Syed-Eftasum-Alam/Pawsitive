@@ -88,9 +88,10 @@ public class SignUPController {
 
     @FXML
     private void handleFile(File selectedFile) {
-        if (!selectedFile.getName().endsWith(".jpg") && !selectedFile.getName().endsWith(".png")) {
+        if (!selectedFile.getName().endsWith(".JPG") && !selectedFile.getName().endsWith(".jpg") && !selectedFile.getName().endsWith(".png")) {
             warning.setText("File not Supported");
         } else
+            warning.setText("");
             file = selectedFile;
     }
 
