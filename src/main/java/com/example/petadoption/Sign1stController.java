@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import utils.Utils;
 
 import java.io.IOException;
 
@@ -29,20 +30,11 @@ public class Sign1stController {
     private Button RegPets;
     @FXML
     void switchtoRegpets(ActionEvent e) throws IOException{
-        Parent root= FXMLLoader.load(getClass().getResource("RegisteredPETS.fxml")) ;
-        Scene scene=new Scene(root);
-        HelloApplication.primaryStage.setScene(scene);
-        HelloApplication.primaryStage.show();
-
+        Utils.changeScene("RegisteredPETS.fxml");
     }
 
     public void switchtoSceneHelloview(ActionEvent e)throws IOException {
-        Parent root= FXMLLoader.load(getClass().getResource("hello-view.fxml")) ;
-
-        Scene scene=new Scene(root);
-        HelloApplication.primaryStage.setScene(scene);
-        HelloApplication.primaryStage.show();
-
+        Utils.changeScene("hello-view.fxml");
     }
 
 
@@ -54,7 +46,6 @@ public class Sign1stController {
 
     @FXML
     void minimize(MouseEvent e) {
-
         HelloApplication.primaryStage.setIconified(true);
     }
 
@@ -62,31 +53,15 @@ public class Sign1stController {
     public void switchtoSceneCatorDog(ActionEvent e)throws IOException {
 
         AnimalType ="dog";
-        Parent root= FXMLLoader.load(getClass().getResource("CatorDog.fxml")) ;
-        Scene scene=new Scene(root);
-        HelloApplication.primaryStage.setScene(scene);
-        HelloApplication.primaryStage.show();
-
+        Utils.changeScene("CatorDog.fxml");
     }
 
     @FXML
     public void switchtoSceneProfile(ActionEvent e)throws IOException {
-
-        Parent root= FXMLLoader.load(getClass().getResource("Profile.fxml")) ;
-
-        Scene scene=new Scene(root);
-        HelloApplication.primaryStage.setScene(scene);
-        HelloApplication.primaryStage.show();
-
+        Utils.changeScene("Profile.fxml");
     }
     @FXML
     void switchtoCatorDogForAdoption(ActionEvent event) throws IOException {
-        Parent root= FXMLLoader.load(getClass().getResource("CatorDogForadoption.fxml")) ;
-
-        Scene scene=new Scene(root);
-        HelloApplication.primaryStage.setScene(scene);
-        HelloApplication.primaryStage.show();
-
+        Utils.changeScene("CatorDogForadoption.fxml");
     }
-
 }

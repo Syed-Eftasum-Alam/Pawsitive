@@ -18,6 +18,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import utils.Utils;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -115,29 +116,13 @@ public class HelloController implements Initializable{
 
 
     public void switchtoSceneSignup(ActionEvent e)throws IOException {
-       Parent root= FXMLLoader.load(getClass().getResource("Signup.fxml")) ;
-       stage=(Stage)((Node)e.getSource()).getScene().getWindow();
-       scene=new Scene(root);
-       stage.setScene(scene);
-       stage.show();
-
+        Utils.changeScene("Signup.fxml");
     }
     public void switchtoSceneHelloview(ActionEvent e)throws IOException {
-        Parent root= FXMLLoader.load(getClass().getResource("hello-view.fxml")) ;
-        stage=(Stage)((Node)e.getSource()).getScene().getWindow();
-        scene=new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-
+        Utils.changeScene("hello-view.fxml");
     }
     public void switchtoSceneSignin1(ActionEvent e)throws IOException {
-
-        Parent root= FXMLLoader.load(getClass().getResource("Sign1st.fxml")) ;
-        stage=(Stage)((Node)e.getSource()).getScene().getWindow();
-        scene=new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-
+        Utils.changeScene("Sign1st.fxml");
     }
     public void switchtoSceneProfile(ActionEvent e)throws IOException {
 
@@ -170,12 +155,8 @@ public class HelloController implements Initializable{
             if(username.equals(USername)&&(password.equals(pass))||password.equals(ShowPass)){
                 System.out.printf(profilePic);
                 HelloApplication.profile= new User(name,username,password,email,location,contact, profilePic);
-                Parent root= FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Profile.fxml")));
-                stage=(Stage)((Node)e.getSource()).getScene().getWindow();
-                scene=new Scene(root);
-                stage.setScene(scene);
-                stage.show();
 
+                Utils.changeScene("Profile.fxml");
             }
             else if(USername.isEmpty()|| (pass.isEmpty()&&ShowPass.isEmpty())){
                 flag=-1;
@@ -198,33 +179,16 @@ public class HelloController implements Initializable{
     public void switchtoSceneCatReg(ActionEvent e)throws IOException {
         AnimalType ="cat";
 
-
-        Parent root= FXMLLoader.load(getClass().getResource("CatReg.fxml")) ;
-        stage=(Stage)((Node)e.getSource()).getScene().getWindow();
-        scene=new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-
+        Utils.changeScene("CatReg.fxml");
     }
     public void switchtoSceneCatorDog(ActionEvent e)throws IOException {
 
-
-        Parent root= FXMLLoader.load(getClass().getResource("CatorDog.fxml")) ;
-        stage=(Stage)((Node)e.getSource()).getScene().getWindow();
-        scene=new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-
+        Utils.changeScene("CatorDog.fxml");
     }
     public void switchtoSceneDogReg(ActionEvent e)throws IOException {
         AnimalType ="dog";
 
-        Parent root= FXMLLoader.load(getClass().getResource("DogReg.fxml")) ;
-        stage=(Stage)((Node)e.getSource()).getScene().getWindow();
-        scene=new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-
+        Utils.changeScene("DogReg.fxml");
     }
 
 
@@ -241,15 +205,11 @@ public class HelloController implements Initializable{
     private void handleFile(File selectedFile) {
         if(!selectedFile.getName().endsWith(".jpg")&&!selectedFile.getName().endsWith(".png")){
             warning.setText("File not Supported");
-
         }
-
-
     }
     @FXML
     void exit(MouseEvent event) {
         System.exit(0);
-
     }
 
     @FXML
@@ -257,12 +217,6 @@ public class HelloController implements Initializable{
         stage=(Stage)((Node)e.getSource()).getScene().getWindow();
         stage.setIconified(true);
     }
-
-
-
-
-
-
 
 
     @FXML

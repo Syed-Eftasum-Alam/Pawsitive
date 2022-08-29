@@ -94,13 +94,7 @@ public class DogRegController {
 
     @FXML
     public void switchtoSceneSignin1(ActionEvent e)throws IOException {
-
-        Parent root= FXMLLoader.load(getClass().getResource("Sign1st.fxml")) ;
-
-        Scene scene=new Scene(root);
-        HelloApplication.primaryStage.setScene(scene);
-        HelloApplication.primaryStage.show();
-
+        Utils.changeScene("Sign1st.fxml");
     }
     @FXML
     void DoginfoSave(ActionEvent event) throws IOException {
@@ -168,17 +162,7 @@ public class DogRegController {
             f.newLine();
             f.close();
 
-
-            Parent root= FXMLLoader.load(getClass().getResource("Sign1st.fxml")) ;
-
-            Scene scene=new Scene(root);
-            HelloApplication.primaryStage.setScene(scene);
-            HelloApplication.primaryStage.show();
-
-
+            Utils.changeScene("Sign1st.fxml");
         }
-
-
     }
-
 }

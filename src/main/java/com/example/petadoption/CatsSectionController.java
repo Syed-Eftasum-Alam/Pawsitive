@@ -12,6 +12,7 @@ import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
+import utils.Utils;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -68,43 +69,21 @@ public class CatsSectionController implements Initializable {
     }
     @FXML
     public void switchtoSceneProfile(ActionEvent e)throws IOException {
-
-        Parent root= FXMLLoader.load(getClass().getResource("Profile.fxml")) ;
-
-        Scene scene=new Scene(root);
-        HelloApplication.makeDraggable(scene);
-        HelloApplication.primaryStage.setScene(scene);
-        HelloApplication.primaryStage.show();
+        Utils.changeScene("Profile.fxml");
 
     }
     @FXML
     public void switchtoSceneSignin1(ActionEvent e)throws IOException {
-
-        Parent root= FXMLLoader.load(getClass().getResource("Sign1st.fxml")) ;
-
-        Scene scene=new Scene(root);
-        HelloApplication.makeDraggable(scene);
-        HelloApplication.primaryStage.setScene(scene);
-        HelloApplication.primaryStage.show();
+        Utils.changeScene("Sign1st.fxml");
 
     }
     @FXML
     void switchtoRegpets(ActionEvent e) throws IOException{
-        Parent root= FXMLLoader.load(getClass().getResource("RegisteredPETS.fxml")) ;
-
-        Scene scene=new Scene(root);
-        HelloApplication.makeDraggable(scene);
-        HelloApplication.primaryStage.setScene(scene);
-        HelloApplication.primaryStage.show();
+        Utils.changeScene("RegisteredPETS.fxml");
     }
 
     public void switchtoSceneHelloview(ActionEvent e)throws IOException {
-        Parent root= FXMLLoader.load(getClass().getResource("hello-view.fxml")) ;
-
-        Scene scene=new Scene(root);
-        HelloApplication.makeDraggable(scene);
-        HelloApplication.primaryStage.setScene(scene);
-        HelloApplication.primaryStage.show();
+        Utils.changeScene("hello-view.fxml");
     }
 
     @Override

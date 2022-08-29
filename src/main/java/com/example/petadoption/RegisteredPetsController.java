@@ -17,6 +17,7 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import utils.Utils;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -89,33 +90,18 @@ public class RegisteredPetsController implements Initializable {
     }
 
     @FXML
-    public void switchtoSceneHelloview(ActionEvent e)throws IOException {
-        Parent root= FXMLLoader.load(getClass().getResource("hello-view.fxml")) ;
-
-        Scene scene=new Scene(root);
-        HelloApplication.primaryStage.setScene(scene);
-        HelloApplication.primaryStage.show();
-
+    public void switchtoSceneHelloview(ActionEvent e) throws IOException {
+        Utils.changeScene("hello-view.fxml");
     }
 
     @FXML
     void switchtoSceneProfile(ActionEvent e) throws IOException {
-        Parent root= FXMLLoader.load(getClass().getResource("Profile.fxml")) ;
-
-        Scene scene=new Scene(root);
-        HelloApplication.primaryStage.setScene(scene);
-        HelloApplication.primaryStage.show();
-
+        Utils.changeScene("Profile.fxml");
     }
 
     @FXML
     void switchtoSceneSignin1(ActionEvent e) throws IOException {
-        Parent root= FXMLLoader.load(getClass().getResource("Sign1st.fxml")) ;
-        stage=(Stage)((Node)e.getSource()).getScene().getWindow();
-        scene=new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-
+        Utils.changeScene("Sign1st.fxml");
     }
 
     private Animal genANumal(String line) {

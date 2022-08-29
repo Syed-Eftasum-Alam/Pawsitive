@@ -109,12 +109,7 @@ public class SignUPController {
 
     @FXML
     public void switchtoSceneHelloview(ActionEvent e) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
-
-        Scene scene = new Scene(root);
-        HelloApplication.primaryStage.setScene(scene);
-        HelloApplication.primaryStage.show();
-
+        Utils.changeScene("hello-view.fxml");
     }
 
     @FXML
@@ -216,16 +211,9 @@ public class SignUPController {
                 u.put(Email, u1);
 
                 f.close();
-                Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
-                Scene scene = new Scene(root);
-                HelloApplication.primaryStage.setScene(scene);
-                HelloApplication.primaryStage.show();
+                Utils.changeScene("hello-view.fxml");
             }
-
-
         }
-
-
     }
 }
 

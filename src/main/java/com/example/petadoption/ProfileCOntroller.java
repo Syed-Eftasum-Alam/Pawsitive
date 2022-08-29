@@ -14,6 +14,7 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import utils.Utils;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -47,22 +48,12 @@ public class ProfileCOntroller implements Initializable {
     private Button RegPets;
     @FXML
     void switchtoRegpets(ActionEvent e) throws IOException{
-        Parent root= FXMLLoader.load(getClass().getResource("RegisteredPETS.fxml")) ;
-
-        Scene scene=new Scene(root);
-        HelloApplication.primaryStage.setScene(scene);
-        HelloApplication.primaryStage.show();
-
+        Utils.changeScene("RegisteredPETS.fxml");
     }
 
 
     public void switchtoSceneHelloview(ActionEvent e)throws IOException {
-        Parent root= FXMLLoader.load(getClass().getResource("hello-view.fxml")) ;
-
-        Scene scene=new Scene(root);
-        HelloApplication.primaryStage.setScene(scene);
-        HelloApplication.primaryStage.show();
-
+        Utils.changeScene("hello-view.fxml");
     }
 
     @FXML
@@ -79,13 +70,7 @@ public class ProfileCOntroller implements Initializable {
 
     @FXML
     public void switchtoSceneSignin1(ActionEvent e)throws IOException {
-
-        Parent root= FXMLLoader.load(getClass().getResource("Sign1st.fxml")) ;
-
-       Scene scene=new Scene(root);
-       HelloApplication.primaryStage.setScene(scene);
-       HelloApplication.primaryStage.show();
-
+        Utils.changeScene("Sign1st.fxml");
     }
 
     @Override
