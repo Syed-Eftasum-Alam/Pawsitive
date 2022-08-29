@@ -4,8 +4,6 @@ import Classes.Animal;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
@@ -14,7 +12,6 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 import utils.Utils;
 
 import java.io.BufferedReader;
@@ -30,10 +27,6 @@ public class RegisteredPetsController implements Initializable {
     private ArrayList<Animal> petList;
     private int counter;
 
-    @FXML
-    private Parent root;
-    private Scene scene;
-    private Stage stage;
     @FXML
     private Button RegPets;
 
@@ -83,7 +76,6 @@ public class RegisteredPetsController implements Initializable {
 
     @FXML
     void minimize(MouseEvent e) {
-
         HelloApplication.primaryStage.setIconified(true);
     }
 
@@ -110,14 +102,15 @@ public class RegisteredPetsController implements Initializable {
         String food = pasts[3];
         String type = pasts[4];
         String owner = pasts[5];
-        return new Animal(breed, name, age, food, type, owner);
+        String proPic = pasts[6];
+        return new Animal(breed, name, age, food, type, owner, proPic);
     }
 
 
-    private void LoadpetsData() {
+    private void readAnimal(String path) {
         try {
-            // Reads dog info
-            BufferedReader br = new BufferedReader(new FileReader("dog.txt"));
+            // Reads animal info
+            BufferedReader br = new BufferedReader(new FileReader(path));
             String line;
             while ((line = br.readLine()) != null) {
                 Animal a = genANumal(line);
@@ -127,19 +120,16 @@ public class RegisteredPetsController implements Initializable {
                 }
             }
             br.close();
-
-            // Reads Cat info
-            br = new BufferedReader(new FileReader("cat.txt"));
-            while ((line = br.readLine()) != null) {
-                Animal a = genANumal(line);
-                if (a.getOwner().equalsIgnoreCase(HelloApplication.profile.getUsername())) {
-                    pets.put(a.getOwner(), a);
-                    petList.add(a);
-                }
-            }
-            br.close();
-        } catch (IOException exception) {
+        } catch (IOException ignored) {
         }
+    }
+
+    private void LoadpetsData() {
+        // Reads dog info
+        readAnimal("dog.txt");
+
+        // Reads Cat info
+        readAnimal("cat.txt");
     }
 
 
@@ -152,7 +142,7 @@ public class RegisteredPetsController implements Initializable {
         txtbreed.setText(p.getBreedName());
         txtage.setText(p.getAge());
         txtfood.setText(p.getFoodhabit());
-        //imgShow.setFill(new ImagePattern(new Image("file:"+p.getAnimalPic())));
+        imgShow.setFill(new ImagePattern(new Image("file:" + p.getAnimalPic())));
 
         // next button
         if (counter + 1 == petList.size())
@@ -185,7 +175,6 @@ public class RegisteredPetsController implements Initializable {
         txtusername.setText(HelloApplication.profile.getUsername());
         profilepic.setFill(new ImagePattern(new Image("file:" + HelloApplication.profile.getProfilePic())));
 
-
         // loading data
         petList = new ArrayList<>();
         pets = new HashMap<>();
@@ -201,6 +190,5 @@ public class RegisteredPetsController implements Initializable {
             maInPane.setVisible(false);
             aPane.setVisible(true);
         }
-
     }
 }
