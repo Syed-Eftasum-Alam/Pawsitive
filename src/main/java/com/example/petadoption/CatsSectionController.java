@@ -48,19 +48,101 @@ public class CatsSectionController implements Initializable {
     @FXML
     private Rectangle profile6;
 
-    //     Data
+    @FXML
+    private Button back1;
+
+    @FXML
+    private Button next1;
+
+    // Data
+    private int count;
     private ArrayList<Animal> list;
+    Rectangle[] rectangles;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        Init();
+    }
+
+    // added data to rectangle
+    private void refreshData(int currentPosition, boolean forward) {
+        int j = 0;
+        if(forward) {
+            for (int i = currentPosition; i < list.size() && i < currentPosition + 6; i++, j++, count++) {
+                rectangles[j].setFill(new ImagePattern(new Image("file:" + list.get(i).getAnimalPic())));
+            }
+        } else {
+            for (int i = currentPosition; i >  -1 && i > currentPosition - 6; i--, j++, count--) {
+                rectangles[j].setFill(new ImagePattern(new Image("file:" + list.get(i).getAnimalPic())));
+            }
+        }
+        // updating button state
+        changeButtonState();
+    }
+
+    // Refresh button state based on how many element remains
+    private void changeButtonState() {
+        int rem = list.size() - count;
+        back1.setDisable(rem > 7 || count < 7);
+        next1.setDisable(rem < 7 || count > list.size());
+    }
+
+    private Animal getAnimal(String str) {
+        String[] p = str.split("##");
+        return new Animal(p[0], p[1], p[2], p[3], p[4], p[5], p[6]);
+    }
+
+    private void readData(String path) {
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(path));
+            String line;
+            while ((line = br.readLine()) != null) {
+                list.add(getAnimal(line));
+            }
+            br.close();
+        } catch (Exception ignored) {}
+    }
+
+    private void Init() {
+        // data init
+        count = 0;
+        list = new ArrayList<>();
+        rectangles = new Rectangle[]{profile1, profile2, profile3, profile4, profile5, profile6};
+
+        // load data
+        readData("cat.txt");
+        readData("dog.txt");
+
+        // Button Configs
+        changeButtonState();
+
+        // data box config
+        for (int i = list.size(); i < 6; i++) {
+            rectangles[i].setVisible(false);
+        }
+
+        // refresh data
+        refreshData(count, true);
+    }
+
+    @FXML
+    void nextActrion(ActionEvent event) {
+        refreshData(count, true);
+    }
+
+    @FXML
+    void backAction(ActionEvent event) {
+        refreshData(count, false);
+    }
 
 
     @FXML
     void exit(MouseEvent event) {
         System.exit(0);
-
     }
 
     @FXML
     void minimize(MouseEvent e) {
-
         HelloApplication.primaryStage.setIconified(true);
     }
 
@@ -83,44 +165,5 @@ public class CatsSectionController implements Initializable {
 
     public void switchtoSceneHelloview(ActionEvent e) throws IOException {
         Utils.changeScene("hello-view.fxml");
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        Init();
-    }
-
-    private Animal getAnimal(String str) {
-        String[] p = str.split("##");
-        return new Animal(p[0], p[1], p[2], p[3], p[4], p[5], p[6]);
-    }
-
-    private void readData(String path) {
-        try {
-            BufferedReader br = new BufferedReader(new FileReader(path));
-            String line;
-            while ((line = br.readLine()) != null) {
-                list.add(getAnimal(line));
-            }
-            br.close();
-        } catch (Exception e) {
-        }
-    }
-
-    private void Init() {
-        list = new ArrayList<>();
-        readData("cat.txt");
-        readData("dog.txt");
-
-        // array
-        Rectangle[] rectangles = {profile1, profile2, profile3, profile4, profile5, profile6};
-        for (int i = list.size(); i < 6; i++) {
-            rectangles[i].setVisible(false);
-        }
-        System.out.println("\n");
-
-        for (int i = 0; i < list.size(); i++) {
-            rectangles[i].setFill(new ImagePattern(new Image("file:" + list.get(i).getAnimalPic())));
-        }
     }
 }
