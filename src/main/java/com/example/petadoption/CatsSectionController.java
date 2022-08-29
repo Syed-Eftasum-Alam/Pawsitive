@@ -68,23 +68,31 @@ public class CatsSectionController implements Initializable {
     private void refreshData(int currentPosition, boolean forward) {
         int j = 0;
         if(forward) {
-            for (int i = currentPosition; i < list.size() && i < currentPosition + 6; i++, j++, count++) {
+            for (int i = currentPosition; i < list.size() && i < currentPosition + 6; i++, j++, count++)
                 rectangles[j].setFill(new ImagePattern(new Image("file:" + list.get(i).getAnimalPic())));
-            }
         } else {
-            for (int i = currentPosition; i >  -1 && i > currentPosition - 6; i--, j++, count--) {
+            int sub = count % 6;
+            count -= sub;
+            for (int i = currentPosition - sub - 6; j < 6; i++, j++, count--)
                 rectangles[j].setFill(new ImagePattern(new Image("file:" + list.get(i).getAnimalPic())));
-            }
         }
         // updating button state
+        if(forward) {
+            for(int i = j; i < 6; i++)
+                rectangles[i].setVisible(false);
+        } else {
+            for(int i = 0; i < 6; i++)
+                rectangles[i].setVisible(true);
+        }
         changeButtonState();
     }
 
     // Refresh button state based on how many element remains
     private void changeButtonState() {
         int rem = list.size() - count;
-        back1.setDisable(rem > 7 || count < 7);
-        next1.setDisable(rem < 7 || count > list.size());
+        back1.setDisable(rem > 5 || count < 7);
+        next1.setDisable(rem < 1 || count > list.size());
+
     }
 
     private Animal getAnimal(String str) {
@@ -111,7 +119,7 @@ public class CatsSectionController implements Initializable {
 
         // load data
         readData("cat.txt");
-        readData("dog.txt");
+//        readData("dog.txt");
 
         // Button Configs
         changeButtonState();

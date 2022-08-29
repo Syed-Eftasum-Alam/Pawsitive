@@ -8,10 +8,11 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="621.0" prefWidth="808.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.petadoption.DogsSectionController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="621.0" prefWidth="808.0" stylesheets="@../../../CSS/Button.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.petadoption.DogsSectionController">
    <children>
       <VBox layoutY="50.0" prefHeight="572.0" prefWidth="174.0" style="-fx-background-color: #45B39D;">
          <children>
@@ -91,6 +92,14 @@
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </padding>
       </HBox>
-      <Text layoutX="460.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dogs Section" />
+      <Rectangle fx:id="profile1" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="167.0" layoutX="201.0" layoutY="84.0" stroke="BLACK" strokeType="INSIDE" width="168.0" />
+      <Rectangle fx:id="profile2" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="167.0" layoutX="397.0" layoutY="84.0" stroke="BLACK" strokeType="INSIDE" width="168.0" />
+      <Rectangle fx:id="profile3" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="167.0" layoutX="596.0" layoutY="84.0" stroke="BLACK" strokeType="INSIDE" width="168.0" />
+      <Rectangle fx:id="profile4" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="167.0" layoutX="201.0" layoutY="319.0" stroke="BLACK" strokeType="INSIDE" width="168.0" />
+      <Rectangle fx:id="profile5" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="167.0" layoutX="397.0" layoutY="319.0" stroke="BLACK" strokeType="INSIDE" width="168.0" />
+      <Rectangle fx:id="profile6" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="167.0" layoutX="596.0" layoutY="319.0" stroke="BLACK" strokeType="INSIDE" width="168.0" />
+      <Button fx:id="next1" layoutX="481.0" layoutY="565.0" mnemonicParsing="false" onAction="#nextActrion" text="Next" />
+      <Button fx:id="back1" layoutX="437.0" layoutY="565.0" mnemonicParsing="false" onAction="#backAction" text="Back" />
+      <Button fx:id="Logout" layoutX="733.0" layoutY="575.0" mnemonicParsing="false" onAction="#switchtoSceneHelloview" styleClass="button2" stylesheets="@../../../CSS/Button.css" text="Log out" />
    </children>
 </AnchorPane>
