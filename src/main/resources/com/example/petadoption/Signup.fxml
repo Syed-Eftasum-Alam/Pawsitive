@@ -89,5 +89,6 @@
       <Text fx:id="eIV" fill="RED" layoutX="612.0" layoutY="343.0" strokeType="OUTSIDE" strokeWidth="0.0" />
       <Text fx:id="lIV" fill="RED" layoutX="610.0" layoutY="405.0" strokeType="OUTSIDE" strokeWidth="0.0" />
       <Text fx:id="cIV" fill="RED" layoutX="612.0" layoutY="467.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="5.00390625" />
+      <Text fx:id="warning" layoutX="691.0" layoutY="520.0" strokeType="OUTSIDE" strokeWidth="0.0" />
    </children>
 </AnchorPane>

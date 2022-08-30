@@ -1,7 +1,8 @@
-Deshi##Mini##3##Anything##Cat##Ahsan71##uploads/img/5aa10d7548b3b1c602a2deb8a746df2d75cbfe5ab5c6ddf9d7db393c84328739..png
-Persian##miko##1##anything##Cat##Ahsan71##uploads/img/c816f18f02931b4b2f6605d975974ca019c0bb7b71236980c9325743b54169c5..png
-Deshi##Mini##3##Anything##Cat##Ahsan71##uploads/img/5a31f886a81eefe29ef5a76ce274b0eb559e8b6cc67eeb01797a03179cdbff14..png
-Persian##miko##1##anything##Cat##Ahsan71##uploads/img/72b11aa5b362a17f9b9a0f133f3ecfe7d7457116e459f496e88d94df99d8f0f8..png
-Deshi##Mini##3##Anything##Cat##Ahsan71##uploads/img/8147f47f3513af5c95cebbe78cac453debf9d7500336722d3058e865ff60783f
-Persian##miko##1##anything##Cat##Ahsan71##uploads/img/9242cc18e7ae2aee74fa53d354c58039968bebfcefb0990506c8da501226aee1..png
-Deshi##Mini##3##Anything##Cat##Ahsan71##uploads/img/avatar.jpg
+Bengal##Miko##1##Normal##Cat##R71##uploads/img/447fcdc38281a4e9598b995fde0957ae4870f628c7353ccd10cb2e44feb730d7..png
+Van##Rolo##2##Dog Food##Cat##R71##uploads/img/19830aca547ee8c0621a6a9e50c2861e68771a5f3d937eb74cc82caa746fe755..png
+Maine Coon##Ruku##1##CatFood##Cat##R71##uploads/img/df86c33c6d2cf694c803ac5682d594dcab39c5cbc0a8bd04a79a36069862199f..png
+RagDoll##Reyna##3##CatFood##Cat##F71##uploads/img/03ad4b0597fa55b33daab6a920463ab4c594d166d84e2628da53c17efc6aabd7..png
+Russian Blue##Reji##2##CatFood##Cat##F71##uploads/img/f7f85f466de75f1e52a6e9a5dd9330a2e1393c7bba0d98e9e6b3c5e9ce2e4ae2..png
+British Shorthair##Raze##2##CatFood##Cat##F71##uploads/img/531e98e1fe00ec287251a9337cd01c764b5768e2475f0096e1e52940a2324d11..png
+Savannah##Mihi##1##CatFood##Cat##F71##uploads/img/71ca8d72fd4549551e8c6b8d32c86936eacb42c0001e3bc062ac2544d16b545c..png
+Manx##Mew##2##CatFood##Cat##F71##uploads/img/8413d3ef417a15ab85e1f06a25c5116faff757ebb061d5e4361954f9434826b2..png
