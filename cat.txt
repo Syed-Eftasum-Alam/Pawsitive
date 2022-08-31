@@ -1,3 +1,9 @@
-Persian##Rolo##1##CatFood##Cat##R71##uploads/img/849e56e52f78ed4317a4b5f48355047e5a3c5fb79b77394b85a7a822109ce552..jpg
-Manx##Ruku##1##CatFood##Cat##R71##uploads/img/8a8ed4c0e040e455fe7ae32fb472a8b44c7ee75a98b30232268a2003b67cc3ef..png
-Munchkin##Mimi##2##CatFood##Cat##R71##uploads/img/f8ee15cc4aaf085d311e0d48ddeb7e68518dd857cd1b53d429b7e6b2a17cc90f..png
+Bengal##Miko##1##Normal##Cat##R71##uploads/img/447fcdc38281a4e9598b995fde0957ae4870f628c7353ccd10cb2e44feb730d7..png
+Van##Rolo##2##Dog Food##Cat##R71##uploads/img/19830aca547ee8c0621a6a9e50c2861e68771a5f3d937eb74cc82caa746fe755..png
+Maine Coon##Ruku##1##CatFood##Cat##R71##uploads/img/df86c33c6d2cf694c803ac5682d594dcab39c5cbc0a8bd04a79a36069862199f..png
+RagDoll##Reyna##3##CatFood##Cat##F71##uploads/img/03ad4b0597fa55b33daab6a920463ab4c594d166d84e2628da53c17efc6aabd7..png
+Russian Blue##Reji##2##CatFood##Cat##F71##uploads/img/f7f85f466de75f1e52a6e9a5dd9330a2e1393c7bba0d98e9e6b3c5e9ce2e4ae2..png
+British Shorthair##Raze##2##CatFood##Cat##F71##uploads/img/531e98e1fe00ec287251a9337cd01c764b5768e2475f0096e1e52940a2324d11..png
+Savannah##Mihi##1##CatFood##Cat##F71##uploads/img/71ca8d72fd4549551e8c6b8d32c86936eacb42c0001e3bc062ac2544d16b545c..png
+Manx##Mew##2##CatFood##Cat##F71##uploads/img/8413d3ef417a15ab85e1f06a25c5116faff757ebb061d5e4361954f9434826b2..png
+
