@@ -5,3 +5,4 @@ Boxer##Tike##2##DogFood##dog##F71##uploads/img/c8f19b5da8b6d1a3f58cce7f41c77790d
 American Eskimo##Fluffy##2##DogFood##dog##F71##uploads/img/c44b0e4594c4a091c638428efefb9e78f3150e53b1b884918e1eddfa6f5a07df..png
 Pomeranian##Oscar##1##DogFood##dog##F71##uploads/img/ac153518b243816e9ca503887045a141392ec08dc4a0d183914b0170ae7deb1d..png
 Afghan Hound##Tiger ##3##DogFood##dog##F71##uploads/img/4f01bf7910a508befee272ca00d7550377c31b7107fcd12d4ee0647146a6d01b..png
+Bulldog##raze##1##DogFood##dog##Ahsan71##uploads/img/dcc31a5b495d503306d5eca989a94904790842f18db3f868a0c8850f083cee98..png
