@@ -68,6 +68,10 @@ public class ProfileCOntroller implements Initializable {
     public void switchtoSceneSignin1(ActionEvent e) throws IOException {
         Utils.changeScene("Sign1st.fxml");
     }
+    @FXML
+    public void switchtoSceneFav(ActionEvent e) throws IOException {
+        Utils.changeScene("favourite.fxml");
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

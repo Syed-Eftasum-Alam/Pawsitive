@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="621.0" prefWidth="808.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.petadoption.RegisteredPetsController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="621.0" prefWidth="808.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.petadoption.Favourites">
    <children>
       <VBox layoutY="52.0" prefHeight="569.0" prefWidth="174.0" style="-fx-background-color: #45B39D;">
          <children>
@@ -32,7 +32,7 @@
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
             </Button>
-            <Button fx:id="favourites" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchtoSceneFav" prefHeight="72.0" prefWidth="174.0" stylesheets="@../../../CSS/Button.css" text="Favourites" textFill="WHITE">
+            <Button fx:id="favourites" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" stylesheets="@../../../CSS/Button.css" text="Favourites" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -56,7 +56,7 @@
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
             </Button>
-            <Button fx:id="RegPets" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" stylesheets="@../../../CSS/Button.css" text="Registered Pets" textFill="WHITE">
+            <Button fx:id="RegPets" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchtoRegpets" prefHeight="72.0" prefWidth="174.0" stylesheets="@../../../CSS/Button.css" text="Registered Pets" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -103,33 +103,49 @@
       <Text fx:id="txtusername" layoutX="623.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="UserName" textAlignment="JUSTIFY">
          <font>
             <Font name="System Bold Italic" size="12.0" />
-         </font></Text>
+         </font>
+      </Text>
       <AnchorPane fx:id="maInPane" layoutX="215.0" layoutY="208.0" prefHeight="352.0" prefWidth="481.0">
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#49e5d3" height="32.0" layoutX="1.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#49e5d3" height="32.0" layoutY="108.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#49e5d3" height="32.0" layoutY="174.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="201.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#49e5d3" height="32.0" layoutX="1.0" layoutY="231.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#49e5d3" height="32.0" layoutY="138.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#49e5d3" height="32.0" layoutY="182.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#49e5d3" height="32.0" layoutY="220.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="201.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#49e5d3" height="32.0" layoutY="258.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
             <Button fx:id="after" layoutX="324.0" layoutY="274.0" mnemonicParsing="false" onAction="#afterAction" prefHeight="25.0" prefWidth="49.0" text="Next" />
             <Button fx:id="previous" layoutX="260.0" layoutY="274.0" mnemonicParsing="false" onAction="#previousAction" prefHeight="25.0" prefWidth="49.0" text="Back" />
-            <Text fx:id="txtpet" layoutX="83.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PetName" textAlignment="JUSTIFY" />
-            <Text fx:id="txtbreed" layoutX="89.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BreedName" />
-            <Text fx:id="txtage" layoutX="72.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Age" />
-            <Text fx:id="txtfood" layoutX="65.0" layoutY="251.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FoodHabit" />
-            <Text layoutX="10.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pet Name:">
+            <Text fx:id="txtpet" layoutX="82.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PetName" textAlignment="JUSTIFY" />
+            <Text fx:id="txtbreed" layoutX="89.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BreedName" />
+            <Text fx:id="txtage" layoutX="72.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Age" />
+            <Text fx:id="txtfood" layoutX="64.0" layoutY="278.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FoodHabit" />
+            <Text layoutX="9.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pet Name:">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
-               </font></Text>
-            <Text layoutX="14.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Age:">
+               </font>
+            </Text>
+            <Text layoutX="14.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Age:">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
-               </font></Text>
-            <Text layoutX="11.0" layoutY="251.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Food:">
+               </font>
+            </Text>
+            <Text layoutX="10.0" layoutY="278.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Food:">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
-               </font></Text>
+               </font>
+            </Text>
             <Rectangle fx:id="imgShow" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="220.0" layoutX="260.0" stroke="BLACK" strokeType="INSIDE" width="221.0" />
-            <Text layoutX="3.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Breed Nanme:">
+            <Text layoutX="3.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Breed Nanme:">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Text>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#49e5d3" height="32.0" layoutY="94.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#49e5d3" height="32.0" layoutY="48.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
+            <Text layoutX="9.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Owner's Name:">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Text>
+            <Text layoutX="11.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
                </font>

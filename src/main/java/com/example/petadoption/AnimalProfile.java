@@ -79,6 +79,10 @@ public class AnimalProfile {
     public void switchtoSceneProfile(ActionEvent e) throws IOException {
         Utils.changeScene("Profile.fxml");
     }
+    @FXML
+    public void switchtoSceneFav(ActionEvent e) throws IOException {
+        Utils.changeScene("favourite.fxml");
+    }
 
     @FXML
     public void switchtoSceneSignin1(ActionEvent e) throws IOException {

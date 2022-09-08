@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.ResourceBundle;
 
-public class RegisteredPetsController implements Initializable {
+public class Favourites implements Initializable {
     private HashMap<String, Animal> pets;
     private ArrayList<Animal> petList;
     private int counter;
@@ -91,8 +91,8 @@ public class RegisteredPetsController implements Initializable {
         Utils.changeScene("Profile.fxml");
     }
     @FXML
-    public void switchtoSceneFav(ActionEvent e) throws IOException {
-        Utils.changeScene("favourite.fxml");
+    void switchtoRegpets(ActionEvent e) throws IOException {
+        Utils.changeScene("RegisteredPETS.fxml");
     }
 
     @FXML

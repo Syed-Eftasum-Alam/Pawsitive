@@ -150,6 +150,10 @@ public class CatsSectionController implements Initializable {
     void exit(MouseEvent event) {
         System.exit(0);
     }
+    @FXML
+    public void switchtoSceneFav(ActionEvent e) throws IOException {
+        Utils.changeScene("favourite.fxml");
+    }
 
     @FXML
     void minimize(MouseEvent e) {

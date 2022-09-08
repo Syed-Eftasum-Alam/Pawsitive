@@ -45,6 +45,10 @@ public class CatorDogController {
     public void switchtoSceneHelloview(ActionEvent e) throws IOException {
         Utils.changeScene("hello-view.fxml");
     }
+    @FXML
+    public void switchtoSceneFav(ActionEvent e) throws IOException {
+        Utils.changeScene("favourite.fxml");
+    }
 
     @FXML
     void exit(MouseEvent event) {
