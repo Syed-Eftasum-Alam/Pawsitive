@@ -57,6 +57,8 @@ public class DogsSectionController implements Initializable {
     // Data
     private int count;
     private ArrayList<Animal> list;
+    @FXML
+    private Button favourites;
     Rectangle[] rectangles;
 
     @Override

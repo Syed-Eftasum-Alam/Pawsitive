@@ -67,6 +67,8 @@ public class RegisteredPetsController implements Initializable {
     private AnchorPane maInPane;
     @FXML
     private Rectangle imgShow;
+    @FXML
+    private Button favourites;
 
     @FXML
     void exit(MouseEvent event) {
@@ -105,6 +107,9 @@ public class RegisteredPetsController implements Initializable {
         String proPic = pasts[6];
         return new Animal(breed, name, age, food, type, owner, proPic);
     }
+//    private Animal genANumal(String line){
+//        String []parts= line.trim().
+//    }
 
 
     private void readAnimal(String path) {

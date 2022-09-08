@@ -53,6 +53,8 @@ public class CatsSectionController implements Initializable {
 
     @FXML
     private Button next1;
+    @FXML
+    private Button favourites;
 
     // Data
     private int count;

@@ -34,6 +34,8 @@ public class CatorDogController {
     private Button Logout;
     @FXML
     private Button RegPets;
+    @FXML
+    private Button favourites;
 
     @FXML
     void switchtoRegpets(ActionEvent e) throws IOException {

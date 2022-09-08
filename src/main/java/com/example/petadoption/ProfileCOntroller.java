@@ -39,6 +39,8 @@ public class ProfileCOntroller implements Initializable {
     private Circle profilepic;
     @FXML
     private Button RegPets;
+    @FXML
+    private Button favourites;
 
     @FXML
     void switchtoRegpets(ActionEvent e) throws IOException {
