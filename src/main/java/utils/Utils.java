@@ -1,5 +1,6 @@
 package utils;
 
+import Classes.Img;
 import com.example.petadoption.HelloApplication;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -150,16 +151,26 @@ public class Utils {    private static double xOffset;
         return imageString;
     }
 
-    public static void base64ToImg(String base64string, String extension){
+    public static String base64ToImg(String base64string, String extension, String imgPath, String fileName){
+        String path;
         //convert base64 string to binary data
         byte[] data =  Base64.getDecoder().decode(base64string);
-        String fileName = UUID.randomUUID().toString();
-        String path = fileName + "." + extension;
+        if(fileName == null)
+            fileName = UUID.randomUUID().toString();
+        path = imgPath + fileName + "." + extension;
         File file = new File(path);
         try (OutputStream outputStream = new BufferedOutputStream(new FileOutputStream(file))) {
             outputStream.write(data);
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return path;
+    }
+    public static String base64ToImg(Img img, String imgPath) {
+        return base64ToImg(img.getBase64(), img.getExtension(), imgPath, null);
+    }
+
+    public static String base64ToImg(Img img, String imgPath, String imgName) {
+        return base64ToImg(img.getBase64(), img.getExtension(), imgPath, imgName);
     }
 }

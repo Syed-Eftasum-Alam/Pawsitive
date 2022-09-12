@@ -1,5 +1,6 @@
 package com.example.petadoption;
 
+import Classes.Img;
 import Classes.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -168,8 +169,9 @@ public class SignUPController {
 
         if (!check) {
             // register
-            String profilePic = Utils.imgToBase64(file.getPath());
-            User u1 = new User(name, Username, password, Email, location, contact, profilePic);
+            String base64 = Utils.imgToBase64(file.getPath());
+            Img pic = new Img(Utils.getFileExtension(file), base64);
+            User u1 = new User(name, Username, password, Email, location, contact, pic);
 
             int res = Operations.signup(u1);
 

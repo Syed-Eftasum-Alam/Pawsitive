@@ -1,5 +1,6 @@
 package com.example.petadoption;
 
+import Classes.Img;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -75,6 +76,7 @@ public class ProfileCOntroller implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        System.out.println(HelloApplication.profile.getProfilePic());
         usernameTxt.setText(HelloApplication.profile.getUsername());
         nameTxt.setText(HelloApplication.profile.getName());
         emailtxt.setText(HelloApplication.profile.getEmail());
@@ -83,7 +85,9 @@ public class ProfileCOntroller implements Initializable {
 
         // profile pic
 //        try {
-        profilepic.setFill(new ImagePattern(new Image("file:" + HelloApplication.profile.getProfilePic())));
+        Img img = HelloApplication.profile.getProfilePic();
+        String tmpImg = Utils.base64ToImg(img, "", img.getPath());
+        profilepic.setFill(new ImagePattern(new Image("file:" + tmpImg)));
 //        } catch (URISyntaxException e) {
 //            throw new RuntimeException(e);
 //        }

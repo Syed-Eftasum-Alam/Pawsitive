@@ -11,7 +11,7 @@ public class User implements Serializable {
    private String email;
    private String location;
    private String contact;
-   private String profilePic;
+   private Img profilePic;
 
     public User(String name, String username, String password, String email, String location, String contact) {
         this.name = name;
@@ -20,10 +20,9 @@ public class User implements Serializable {
         this.email = email;
         this.location = location;
         this.contact = contact;
-        this.profilePic = "uploads/img/avatar.jpg";
     }
 
-    public User(String name, String username, String password, String email, String location, String contact, String profilePic) {
+    public User(String name, String username, String password, String email, String location, String contact, Img profilePic) {
         this(name, username, password, email, location, contact);
         this.profilePic = profilePic;
     }
@@ -42,11 +41,11 @@ public class User implements Serializable {
         return name;
     }
 
-    public String getProfilePic() {
+    public Img getProfilePic() {
         return profilePic;
     }
 
-    public void setProfilePic(String profilePic) {
+    public void setProfilePic(Img profilePic) {
         this.profilePic = profilePic;
     }
 
