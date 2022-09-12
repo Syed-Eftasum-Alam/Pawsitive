@@ -1,5 +1,6 @@
 package utils;
 
+import Classes.Animal;
 import Classes.User;
 import com.example.petadoption.Configs;
 import com.example.petadoption.HelloApplication;
@@ -7,6 +8,9 @@ import com.example.petadoption.HelloApplication;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+
+import static com.example.petadoption.HelloApplication.receiveObj;
+import static com.example.petadoption.HelloApplication.sendObj;
 
 public class Operations {
     public static boolean signIn(User user, ObjectInputStream receiveObj, ObjectOutputStream sendObj) {
@@ -34,8 +38,6 @@ public class Operations {
     }
     public static int signup(User user) {
         try {
-            ObjectOutputStream sendObj = HelloApplication.sendObj;
-            ObjectInputStream receiveObj = HelloApplication.receiveObj;
 
             // sending registration data
             System.out.println(" - Sending credentials");
@@ -54,5 +56,17 @@ public class Operations {
             e.printStackTrace();
         }
         return 0;
+    }
+
+    public static void addAnimal(Animal animal) {
+        try {
+            // sending registration data
+            System.out.println(" - Sending Animal Info");
+            System.out.println(" - Requesting for Add Animal");
+            sendObj.writeObject("addAnimal");
+            sendObj.writeObject(animal);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

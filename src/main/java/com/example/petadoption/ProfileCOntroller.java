@@ -85,9 +85,7 @@ public class ProfileCOntroller implements Initializable {
 
         // profile pic
 //        try {
-        Img img = HelloApplication.profile.getProfilePic();
-        String tmpImg = Utils.base64ToImg(img, "", img.getPath());
-        profilepic.setFill(new ImagePattern(new Image("file:" + tmpImg)));
+        profilepic.setFill(new ImagePattern(new Image("file:" + Utils.getUserProfilePic())));
 //        } catch (URISyntaxException e) {
 //            throw new RuntimeException(e);
 //        }

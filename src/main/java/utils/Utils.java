@@ -173,4 +173,17 @@ public class Utils {    private static double xOffset;
     public static String base64ToImg(Img img, String imgPath, String imgName) {
         return base64ToImg(img.getBase64(), img.getExtension(), imgPath, imgName);
     }
+
+    public static String getUserProfilePic() {
+        Img img = HelloApplication.profile.getProfilePic();
+        return Utils.base64ToImg(img, "", img.getPath());
+    }
+
+    public static Img fileToImg(File file) {
+        return new Img(Utils.getFileExtension(file), Utils.imgToBase64(file.getPath()));
+    }
+
+    public static String imgTotempImg(Img img) {
+        return Utils.base64ToImg(img, "", img.getPath());
+    }
 }

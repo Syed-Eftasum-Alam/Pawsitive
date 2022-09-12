@@ -17,6 +17,7 @@ import utils.FileIO;
 import utils.Utils;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
@@ -75,6 +76,9 @@ public class RegisteredPetsController implements Initializable {
     private Button favourites;
 
     @FXML
+    private Button btnMarkAsAdopted;
+
+    @FXML
     void exit(MouseEvent event) {
         System.exit(0);
 
@@ -109,13 +113,13 @@ public class RegisteredPetsController implements Initializable {
             // Asking for Cat Info
             System.out.println(" - Requesting for Animal Info");
             sendObj.writeObject("getUploadedCat");
-            sendObj.writeObject(profile);
+            sendObj.writeObject(FileIO.readObjFromFile(Configs.userTempData));
             petList = (ArrayList<Animal>) receiveObj.readObject();
 
             // Asking for Dog Info
             System.out.println(" - Requesting for Animal Info");
             sendObj.writeObject("getUploadedDog");
-            sendObj.writeObject(profile);
+            sendObj.writeObject(FileIO.readObjFromFile(Configs.userTempData));
             petList.addAll((ArrayList<Animal>) receiveObj.readObject());
         } catch (Exception e) {
             e.printStackTrace();
@@ -132,7 +136,7 @@ public class RegisteredPetsController implements Initializable {
         txtbreed.setText(p.getBreedName());
         txtage.setText(p.getAge());
         txtfood.setText(p.getFoodhabit());
-        imgShow.setFill(new ImagePattern(new Image("file:" + p.getAnimalPic())));
+        imgShow.setFill(new ImagePattern(new Image("file:" + Utils.imgTotempImg(p.getAnimalPic()))));
 
         // next button
         if (counter + 1 == petList.size())
@@ -179,5 +183,10 @@ public class RegisteredPetsController implements Initializable {
             maInPane.setVisible(false);
             aPane.setVisible(true);
         }
+    }
+
+    @FXML
+    void btnMarkAsAdoptedAction(ActionEvent event) {
+
     }
 }

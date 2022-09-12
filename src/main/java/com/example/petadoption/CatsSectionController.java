@@ -97,17 +97,13 @@ public class CatsSectionController implements Initializable {
 
     }
 
-    private Animal getAnimal(String str) {
-        String[] p = str.split("##");
-        return new Animal(p[0], p[1], p[2], p[3], p[4], p[5], p[6]);
-    }
 
     private void readData(String path) {
         try {
             BufferedReader br = new BufferedReader(new FileReader(path));
             String line;
             while ((line = br.readLine()) != null) {
-                list.add(getAnimal(line));
+//                list.add(getAnimal(line));
             }
             br.close();
         } catch (Exception ignored) {}

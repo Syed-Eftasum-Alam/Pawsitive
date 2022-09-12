@@ -10,14 +10,14 @@ public  class Animal implements Serializable {
    private String Foodhabit;
    private String type;
    private  String owner;
-   private String AnimalPic;
+   private Img AnimalPic;
 
 
-    public String getAnimalPic() {
+    public Img getAnimalPic() {
         return AnimalPic;
     }
 
-    public void setAnimalPic(String animalPic) {
+    public void setAnimalPic(Img animalPic) {
         AnimalPic = animalPic;
     }
 
@@ -89,7 +89,7 @@ public  class Animal implements Serializable {
         this(breedName,petname,age,foodhabit,type);
         this.owner=owner;
     }
-    public Animal(String breedName, String petname, String age, String foodhabit, String type,String owner,String AnimalPic){
+    public Animal(String breedName, String petname, String age, String foodhabit, String type,String owner,Img AnimalPic){
         this(breedName,petname,age,foodhabit,type,owner);
         this.AnimalPic=AnimalPic;
     }

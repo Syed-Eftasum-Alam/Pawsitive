@@ -9,6 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
+import utils.Operations;
 import utils.Utils;
 
 import java.io.BufferedWriter;
@@ -98,7 +99,6 @@ public class DogRegController {
         AnimalType = "dog";
         boolean isEmpty = false;
 
-        BufferedWriter f = new BufferedWriter(new FileWriter("dog.txt", true));
         String BreedName = tfBname.getText();
         String PetName = tfPname.getText();
         String Age = tfAge.getText();
@@ -141,20 +141,8 @@ public class DogRegController {
 
         }
         if (!isEmpty) {
-
-            String profilePic = Utils.upload(file, "uploads/img/");
-            Animal dog = new Animal(BreedName, PetName, Age, FoodHabit, AnimalType, HelloApplication.profile.getUsername(), profilePic);
-
-            f.write(BreedName + "##");
-            f.write(PetName + "##");
-            f.write(Age + "##");
-            f.write(FoodHabit + "##");
-            f.write(AnimalType + "##");
-            f.write(HelloApplication.profile.getUsername() + "##");
-            f.write(profilePic);
-            f.newLine();
-            f.close();
-
+            Animal dog = new Animal(BreedName, PetName, Age, FoodHabit, AnimalType, HelloApplication.profile.getUsername(), Utils.fileToImg(file));
+            Operations.addAnimal(dog);
             Utils.changeScene("Sign1st.fxml");
         }
     }

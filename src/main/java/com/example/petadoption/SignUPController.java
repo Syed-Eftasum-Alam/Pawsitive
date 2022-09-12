@@ -169,9 +169,7 @@ public class SignUPController {
 
         if (!check) {
             // register
-            String base64 = Utils.imgToBase64(file.getPath());
-            Img pic = new Img(Utils.getFileExtension(file), base64);
-            User u1 = new User(name, Username, password, Email, location, contact, pic);
+            User u1 = new User(name, Username, password, Email, location, contact, Utils.fileToImg(file));
 
             int res = Operations.signup(u1);
 
