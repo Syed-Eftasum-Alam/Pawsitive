@@ -6,13 +6,16 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.security.MessageDigest;
 import java.time.LocalDateTime;
+import java.util.Base64;
 import java.util.Objects;
+import java.util.UUID;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Utils {    private static double xOffset;
     private static double yOffset;
@@ -106,5 +109,57 @@ public class Utils {    private static double xOffset;
             Files.copy(file.toPath(), dest.toPath());
         } catch (IOException e) {}
         return path;
+    }
+
+    public static final Pattern VALID_EMAIL_ADDRESS_REGEX =
+            Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
+
+    public static boolean validateEmail(String emailStr) {
+        Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(emailStr);
+        return matcher.find();
+    }
+
+    public static String imgToBase64(String imgPath) {
+        // image path declaration
+        String imageString;
+
+        // read image from file
+        FileInputStream stream;
+        try {
+            stream = new FileInputStream(imgPath);
+            // get byte array from image stream
+            int bufLength = 2048;
+            byte[] buffer = new byte[2048];
+            byte[] data;
+
+            ByteArrayOutputStream out = new ByteArrayOutputStream();
+            int readLength;
+            while ((readLength = stream.read(buffer, 0, bufLength)) != -1) {
+                out.write(buffer, 0, readLength);
+            }
+
+            data = out.toByteArray();
+            imageString = Base64.getEncoder().withoutPadding().encodeToString(data);
+
+            out.close();
+            stream.close();
+//            System.out.println("Encode Image Result : " + imageString);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        return imageString;
+    }
+
+    public static void base64ToImg(String base64string, String extension){
+        //convert base64 string to binary data
+        byte[] data =  Base64.getDecoder().decode(base64string);
+        String fileName = UUID.randomUUID().toString();
+        String path = fileName + "." + extension;
+        File file = new File(path);
+        try (OutputStream outputStream = new BufferedOutputStream(new FileOutputStream(file))) {
+            outputStream.write(data);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

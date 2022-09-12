@@ -1,6 +1,10 @@
 package Classes;
 
-public class User {
+import utils.Utils;
+
+import java.io.Serializable;
+
+public class User implements Serializable {
    private String name;
    private String username;
    private String password;
@@ -23,6 +27,16 @@ public class User {
         this(name, username, password, email, location, contact);
         this.profilePic = profilePic;
     }
+
+    public User(String str, String password) {
+        boolean isEmail = Utils.validateEmail(str);
+        if(isEmail)
+            this.email = str;
+        else
+            this.username = str;
+        this.password = password;
+    }
+
 
     public String getName() {
         return name;

@@ -8,6 +8,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
+import utils.Operations;
 import utils.Utils;
 
 import java.io.BufferedWriter;
@@ -107,11 +108,8 @@ public class SignUPController {
     }
 
     @FXML
-    public void UserInfosave(ActionEvent e) throws IOException {
-        HashMap<String, User> u = new HashMap<>();
-        boolean check2 = false;
+    public void UserInfosave(ActionEvent e) {
         boolean check = false;
-
 
         String name = tfname.getText();
         String Username = tfusername.getText();
@@ -119,88 +117,66 @@ public class SignUPController {
         String Email = tfemail.getText();
         String location = tflocation.getText();
         String contact = tfcontact.getText();
-        File f2 = new File("data.txt");
-        Scanner sc = new Scanner(f2);
-        String line = " ";
+
+        if(!Utils.validateEmail(Email)) {
+            warning.setText("Invalid Email Address!");
+            return;
+        }
+
         if (name.isEmpty()) {
             nIV.setText("*");
-            check2 = true;
+            check = true;
 
         } else {
             nIV.setText("");
         }
         if (Username.isEmpty()) {
             uIV.setText("*");
-            check2 = true;
+            check = true;
 
         } else {
             uIV.setText("");
         }
         if (password.isEmpty()) {
             pIV.setText("*");
-            check2 = true;
+            check = true;
 
         } else {
             pIV.setText("");
         }
         if (Email.isEmpty()) {
             eIV.setText("*");
-            check2 = true;
+            check = true;
 
         } else {
             eIV.setText("");
         }
         if (location.isEmpty()) {
             lIV.setText("*");
-            check2 = true;
+            check = true;
 
         } else {
             lIV.setText("");
         }
         if (contact.isEmpty()) {
             cIV.setText("*");
-            check2 = true;
+            check = true;
 
         } else {
             cIV.setText("");
         }
-        if (!check2) {
-            while (sc.hasNext()) {
-                line = sc.nextLine();
-                String[] parts = line.split("##");
-                String name1 = parts[0];
-                String userName1 = parts[1];
-                String password1 = parts[2];
-                String Email1 = parts[3];
-                String location1 = parts[4];
-                String contact1 = parts[5];
-                u.put(Email1, new User(name1, userName1, password1, Email1, location1, contact1));
-                u.put(userName1, new User(name1, userName1, password1, Email1, location1, contact1));
-            }
-            sc.close();
-            check = u.containsKey(Email) || u.containsKey(Username);
-            if (check) {
+
+        if (!check) {
+            // register
+            String profilePic = Utils.imgToBase64(file.getPath());
+            User u1 = new User(name, Username, password, Email, location, contact, profilePic);
+
+            int res = Operations.signup(u1);
+
+            if (res == 1)
+                Utils.changeScene(Configs.homeScene);
+            else
                 DupUsernameorEmail.setText("The username or the Email is already in use");
-            } else {
-                String profilePic = Utils.upload(file, "uploads/img/");
-                BufferedWriter f = new BufferedWriter(new FileWriter("data.txt", true));
-                User u1 = new User(name, Username, password, Email, location, contact, profilePic);
-
-                f.write(name + "##");
-                f.write(Username + "##");
-                f.write(password + "##");
-                f.write(Email + "##");
-                f.write(location + "##");
-                f.write(contact + "##");
-                f.write(profilePic);
-                f.newLine();
-
-                u.put(Username, u1);
-                u.put(Email, u1);
-
-                f.close();
-                Utils.changeScene("hello-view.fxml");
-            }
         }
     }
 }
