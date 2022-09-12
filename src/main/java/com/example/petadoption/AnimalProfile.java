@@ -108,6 +108,8 @@ public class AnimalProfile implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Animal a = HelloApplication.animal;
+        AddFav.setDisable(!a.getStatus().equalsIgnoreCase("available"));
+        btnReqForAdopt.setDisable(!a.getStatus().equalsIgnoreCase("available"));
         breedName.setText(a.getBreedName());
         petsName.setText(a.getPetname());
         Age.setText(a.getAge());
