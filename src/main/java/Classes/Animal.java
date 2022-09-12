@@ -3,6 +3,7 @@ package Classes;
 import java.io.Serializable;
 
 public  class Animal implements Serializable {
+    private String status;
    private String BreedName;
    private String Petname;
    private String Age;
@@ -69,6 +70,14 @@ public  class Animal implements Serializable {
         this.owner = owner;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     public Animal(String breedName, String petname, String age, String foodhabit, String type) {
         BreedName = breedName;
         Petname = petname;
@@ -83,7 +92,5 @@ public  class Animal implements Serializable {
     public Animal(String breedName, String petname, String age, String foodhabit, String type,String owner,String AnimalPic){
         this(breedName,petname,age,foodhabit,type,owner);
         this.AnimalPic=AnimalPic;
-
-
     }
 }
