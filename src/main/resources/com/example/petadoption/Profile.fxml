@@ -15,6 +15,16 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="621.0" prefWidth="808.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.petadoption.ProfileCOntroller">
    <children>
+      <ImageView fitHeight="572.0" fitWidth="586.0" layoutX="741.0" layoutY="48.0" opacity="0.27" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../img/background.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="686.0" fitWidth="578.0" layoutX="173.0" layoutY="45.0" opacity="0.27" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../img/background.jpg" />
+         </image>
+      </ImageView>
       <VBox layoutY="50.0" prefHeight="572.0" prefWidth="174.0" style="-fx-background-color: #45B39D;">
          <children>
             <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" stylesheets="@../../../CSS/Button.css" text="Profile" textFill="WHITE">
@@ -89,12 +99,21 @@
             <Font name="System Italic" size="24.0" />
          </font>
       </Text>
-      <Line endX="395.0" layoutX="312.0" layoutY="160.0" startX="-111.0" />
+      <Line endX="108.0" layoutX="312.0" layoutY="160.0" startX="-111.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#49e5d3" height="32.0" layoutX="201.0" layoutY="250.0" nodeOrientation="LEFT_TO_RIGHT" stroke="WHITE" strokeType="INSIDE" width="224.0" />
-      <Text layoutX="201.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" />
+      <Text layoutX="201.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Text>
       <Text layoutX="201.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text="UserName:" />
-      <Text layoutX="479.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact:" />
-      <Text layoutX="479.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Location:" />
+      <Text layoutX="479.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact:">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Text>
+      <Text layoutX="479.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Location:">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Text>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#49e5d3" height="32.0" layoutX="201.0" layoutY="325.0" nodeOrientation="LEFT_TO_RIGHT" stroke="WHITE" strokeType="INSIDE" width="224.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#49e5d3" height="32.0" layoutX="479.0" layoutY="250.0" nodeOrientation="LEFT_TO_RIGHT" stroke="WHITE" strokeType="INSIDE" width="224.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#49e5d3" height="32.0" layoutX="479.0" layoutY="325.0" nodeOrientation="LEFT_TO_RIGHT" stroke="WHITE" strokeType="INSIDE" width="224.0" />
@@ -103,7 +122,10 @@
       <Text fx:id="usernameTxt" layoutX="207.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
       <Text fx:id="locationtxt" layoutX="489.0" layoutY="340.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#49e5d3" height="32.0" layoutX="317.0" layoutY="446.0" nodeOrientation="LEFT_TO_RIGHT" stroke="WHITE" strokeType="INSIDE" width="275.0" />
-      <Text layoutX="316.0" layoutY="435.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail:" />
+      <Text layoutX="316.0" layoutY="435.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail:">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Text>
       <Text fx:id="emailtxt" layoutX="323.0" layoutY="466.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
       <HBox alignment="CENTER_RIGHT" layoutX="397.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="50.0" prefWidth="411.0" spacing="4.0" style="-fx-background-color: #30A58E;">
          <children>

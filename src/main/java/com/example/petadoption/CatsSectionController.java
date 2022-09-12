@@ -9,6 +9,7 @@ import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Text;
 import utils.FileIO;
 import utils.Utils;
 
@@ -59,6 +60,24 @@ public class CatsSectionController implements Initializable {
     private Button next1;
     @FXML
     private Button favourites;
+
+    @FXML
+    private Text bname1;
+
+    @FXML
+    private Text bname2;
+
+    @FXML
+    private Text bname3;
+
+    @FXML
+    private Text bname4;
+
+    @FXML
+    private Text bname5;
+
+    @FXML
+    private Text bname6;
 
     // Data
     private int count;

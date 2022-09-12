@@ -101,5 +101,11 @@
       <Button fx:id="next1" layoutX="481.0" layoutY="565.0" mnemonicParsing="false" onAction="#nextActrion" text="Next" />
       <Button fx:id="back1" layoutX="437.0" layoutY="565.0" mnemonicParsing="false" onAction="#backAction" text="Back" />
       <Button fx:id="Logout" layoutX="733.0" layoutY="575.0" mnemonicParsing="false" onAction="#switchtoSceneHelloview" styleClass="button2" stylesheets="@../../../CSS/Button.css" text="Log out" />
+      <Text fx:id="bname1" layoutX="252.0" layoutY="272.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Breed Name" />
+      <Text fx:id="bname2" layoutX="445.0" layoutY="272.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Breed Name" />
+      <Text fx:id="bname3" layoutX="647.0" layoutY="272.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Breed Name" />
+      <Text fx:id="bname6" layoutX="647.0" layoutY="510.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Breed Name" />
+      <Text fx:id="bname5" layoutX="445.0" layoutY="509.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Breed Name" />
+      <Text fx:id="bname4" layoutX="252.0" layoutY="510.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Breed Name" />
    </children>
 </AnchorPane>
