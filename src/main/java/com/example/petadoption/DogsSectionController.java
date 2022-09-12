@@ -112,6 +112,19 @@ public class DogsSectionController implements Initializable {
         }
     }
 
+    @FXML
+    void viewProfileAction(MouseEvent event) {
+        int i = 0;
+        Rectangle r = (Rectangle) event.getSource();
+        for(Rectangle rr: rectangles)
+            if (r == rr) break;
+            else i++;
+        int rev = count-i;
+        HelloApplication.animal = list.get(count - rev);
+        System.out.println(HelloApplication.animal.getBreedName());
+        Utils.changeScene("AnimalPRofile.fxml");
+    }
+
     private void Init() {
         // data init
         count = 0;
@@ -119,7 +132,6 @@ public class DogsSectionController implements Initializable {
         rectangles = new Rectangle[]{profile1, profile2, profile3, profile4, profile5, profile6};
 
         // load data
-//        readData("cat.txt");
         readData();
 
         // Button Configs

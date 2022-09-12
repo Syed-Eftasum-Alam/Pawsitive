@@ -131,7 +131,7 @@ public class CatRegController {
         }
         if (!isEmpty) {
 //            Animal cat= new Animal(BreedName,PetName,Age,FoodHabit,AnimalType,HelloApplication.profile.getUsername());
-            Animal cat = new Animal(BreedName, PetName, Age, FoodHabit, AnimalType, HelloApplication.profile.getName(), Utils.fileToImg(file));
+            Animal cat = new Animal(BreedName, PetName, Age, FoodHabit, AnimalType, HelloApplication.profile.getUsername(), Utils.fileToImg(file));
             Operations.addAnimal(cat);
             Utils.changeScene("Sign1st.fxml");
         }

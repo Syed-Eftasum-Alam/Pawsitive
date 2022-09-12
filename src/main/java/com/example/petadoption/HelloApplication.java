@@ -1,6 +1,7 @@
 package com.example.petadoption;
 
 
+import Classes.Animal;
 import Classes.User;
 import javafx.application.Application;
 import javafx.scene.Parent;
@@ -15,6 +16,7 @@ import java.io.*;
 import java.net.Socket;
 
 public class HelloApplication extends Application {
+    public static Animal animal;
     public static User profile;
     public static Stage primaryStage;
     public static Parent root;

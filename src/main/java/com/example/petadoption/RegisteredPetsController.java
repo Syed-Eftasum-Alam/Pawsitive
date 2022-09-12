@@ -189,4 +189,7 @@ public class RegisteredPetsController implements Initializable {
     void btnMarkAsAdoptedAction(ActionEvent event) {
 
     }
+
+    public void switchtoRegpets(ActionEvent actionEvent) {
+    }
 }
