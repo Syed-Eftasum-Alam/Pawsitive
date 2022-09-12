@@ -9,6 +9,7 @@ import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
+import utils.FileIO;
 import utils.Utils;
 
 import java.io.BufferedReader;
@@ -17,6 +18,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+
+import static com.example.petadoption.HelloApplication.receiveObj;
+import static com.example.petadoption.HelloApplication.sendObj;
 
 public class CatsSectionController implements Initializable {
 
@@ -71,12 +75,12 @@ public class CatsSectionController implements Initializable {
         int j = 0;
         if(forward) {
             for (int i = currentPosition; i < list.size() && i < currentPosition + 6; i++, j++, count++)
-                rectangles[j].setFill(new ImagePattern(new Image("file:" + list.get(i).getAnimalPic())));
+                rectangles[j].setFill(new ImagePattern(new Image("file:" + Utils.imgTotempImg(list.get(i).getAnimalPic()))));
         } else {
             int sub = count % 6;
             count -= sub;
             for (int i = currentPosition - sub - 6; j < 6; i++, j++, count--)
-                rectangles[j].setFill(new ImagePattern(new Image("file:" + list.get(i).getAnimalPic())));
+                rectangles[j].setFill(new ImagePattern(new Image("file:" + Utils.imgTotempImg(list.get(i).getAnimalPic()))));
         }
         // updating button state
         if(forward) {
@@ -98,15 +102,16 @@ public class CatsSectionController implements Initializable {
     }
 
 
-    private void readData(String path) {
+    private void readData() {
         try {
-            BufferedReader br = new BufferedReader(new FileReader(path));
-            String line;
-            while ((line = br.readLine()) != null) {
-//                list.add(getAnimal(line));
-            }
-            br.close();
-        } catch (Exception ignored) {}
+            // Asking for Cat Info
+            System.out.println(" - Requesting for Cat Info");
+            sendObj.writeObject("getUploadedCat");
+            sendObj.writeObject(null);
+            list = (ArrayList<Animal>) receiveObj.readObject();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private void Init() {
@@ -116,8 +121,7 @@ public class CatsSectionController implements Initializable {
         rectangles = new Rectangle[]{profile1, profile2, profile3, profile4, profile5, profile6};
 
         // load data
-        readData("cat.txt");
-//        readData("dog.txt");
+        readData();
 
         // Button Configs
         changeButtonState();

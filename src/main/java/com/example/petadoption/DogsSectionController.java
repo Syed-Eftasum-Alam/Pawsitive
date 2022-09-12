@@ -18,6 +18,9 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import static com.example.petadoption.HelloApplication.receiveObj;
+import static com.example.petadoption.HelloApplication.sendObj;
+
 public class DogsSectionController implements Initializable {
 
     @FXML
@@ -71,12 +74,12 @@ public class DogsSectionController implements Initializable {
         int j = 0;
         if(forward) {
             for (int i = currentPosition; i < list.size() && i < currentPosition + 6; i++, j++, count++)
-                rectangles[j].setFill(new ImagePattern(new Image("file:" + list.get(i).getAnimalPic())));
+                rectangles[j].setFill(new ImagePattern(new Image("file:" + Utils.imgTotempImg(list.get(i).getAnimalPic()))));
         } else {
             int sub = count % 6;
             count -= sub;
             for (int i = currentPosition - sub - 6; j < 6; i++, j++, count--)
-                rectangles[j].setFill(new ImagePattern(new Image("file:" + list.get(i).getAnimalPic())));
+                rectangles[j].setFill(new ImagePattern(new Image("file:" + Utils.imgTotempImg(list.get(i).getAnimalPic()))));
         }
         // updating button state
         if(forward) {
@@ -97,15 +100,16 @@ public class DogsSectionController implements Initializable {
 
     }
 
-    private void readData(String path) {
+    private void readData() {
         try {
-            BufferedReader br = new BufferedReader(new FileReader(path));
-            String line;
-            while ((line = br.readLine()) != null) {
-//                list.add(getAnimal(line));
-            }
-            br.close();
-        } catch (Exception ignored) {}
+            // Asking for Cat Info
+            System.out.println(" - Requesting for Dog Info");
+            sendObj.writeObject("getUploadedDog");
+            sendObj.writeObject(null);
+            list = (ArrayList<Animal>) receiveObj.readObject();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private void Init() {
@@ -116,7 +120,7 @@ public class DogsSectionController implements Initializable {
 
         // load data
 //        readData("cat.txt");
-        readData("dog.txt");
+        readData();
 
         // Button Configs
         changeButtonState();
