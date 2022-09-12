@@ -14,6 +14,7 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import utils.FileIO;
+import utils.Operations;
 import utils.Utils;
 
 import java.io.BufferedReader;
@@ -77,6 +78,7 @@ public class RegisteredPetsController implements Initializable {
 
     @FXML
     private Button btnMarkAsAdopted;
+    Animal currentAnimal;
 
     @FXML
     void exit(MouseEvent event) {
@@ -129,6 +131,7 @@ public class RegisteredPetsController implements Initializable {
 
     private void updateData(int counter) {
         Animal p = petList.get(counter);
+        currentAnimal = p;
         previous.setDisable(true);
 
         // Set Info
@@ -137,6 +140,7 @@ public class RegisteredPetsController implements Initializable {
         txtage.setText(p.getAge());
         txtfood.setText(p.getFoodhabit());
         imgShow.setFill(new ImagePattern(new Image("file:" + Utils.imgTotempImg(p.getAnimalPic()))));
+        btnMarkAsAdopted.setVisible(p.getStatus().equalsIgnoreCase("available"));
 
         // next button
         if (counter + 1 == petList.size())
@@ -187,7 +191,7 @@ public class RegisteredPetsController implements Initializable {
 
     @FXML
     void btnMarkAsAdoptedAction(ActionEvent event) {
-
+        Operations.updatePetStatus(currentAnimal);
     }
 
     public void switchtoRegpets(ActionEvent actionEvent) {

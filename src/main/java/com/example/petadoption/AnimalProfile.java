@@ -68,6 +68,9 @@ public class AnimalProfile implements Initializable {
     private Rectangle animalPic;
 
     @FXML
+    private Button btnReqForAdopt;
+
+    @FXML
     void exit(MouseEvent event) {
         System.exit(0);
 
@@ -122,6 +125,7 @@ public class AnimalProfile implements Initializable {
             System.out.println(" - Owner Name: " + owner.getName());
             location.setText(owner.getLocation());
             contactNumber.setText(owner.getContact());
+            btnReqForAdopt.setVisible(!a.getOwner().equals(HelloApplication.profile.getUsername()));
         } catch (Exception ignored) {}
     }
 }

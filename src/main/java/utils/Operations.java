@@ -69,4 +69,16 @@ public class Operations {
             e.printStackTrace();
         }
     }
+
+    public static void updatePetStatus(Animal a) {
+        try {
+            // sending registration data
+            System.out.println(" - Sending Animal Info");
+            System.out.println(" - Requesting for Update Animal Availability");
+            sendObj.writeObject("updatePetStatus");
+            sendObj.writeObject(a);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

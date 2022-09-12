@@ -159,7 +159,7 @@
       <Text fx:id="ownersName" layoutX="629.0" layoutY="362.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Owners's Name" />
       <Text fx:id="location" layoutX="630.0" layoutY="388.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Location" />
       <Text fx:id="contactNumber" layoutX="653.0" layoutY="413.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact" />
-      <Button fx:id="AddFav1" layoutX="339.0" layoutY="545.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="302.0" text="Request For Adoption" />
+      <Button fx:id="btnReqForAdopt" layoutX="339.0" layoutY="545.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="302.0" text="Request For Adoption" />
       <Text layoutX="406.0" layoutY="490.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adoption Status:">
          <font>
             <Font name="System Bold Italic" size="12.0" />
