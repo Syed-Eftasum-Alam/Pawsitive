@@ -100,37 +100,22 @@ public class Favourites implements Initializable {
         Utils.changeScene("Sign1st.fxml");
     }
 
-    private Animal genANumal(String line) {
-        String[] pasts = line.trim().split("##");
-        String breed = pasts[0];
-        String name = pasts[1];
-        String age = pasts[2];
-        String food = pasts[3];
-        String type = pasts[4];
-        String owner = pasts[5];
-        String proPic = pasts[6];
-        return new Animal(breed, name, age, food, type, owner, proPic);
-    }
 //    private Animal genANumal(String line){
 //        String []parts= line.trim().
 //    }
 
 
     private void readAnimal(String path) {
+        BufferedReader br;
         try {
             // Reads animal info
-            BufferedReader br = new BufferedReader(new FileReader(path));
+            br = new BufferedReader(new FileReader(path));
             String line;
             while ((line = br.readLine()) != null) {
-                Animal a = genANumal(line);
-                if (a.getOwner().equalsIgnoreCase(HelloApplication.profile.getUsername())) {
-                    pets.put(a.getOwner(), a);
-                    petList.add(a);
-                }
+
             }
             br.close();
-        } catch (IOException ignored) {
-        }
+        } catch (IOException ignored) {}
     }
 
     private void LoadpetsData() {

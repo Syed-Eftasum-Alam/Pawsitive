@@ -1,6 +1,7 @@
 package com.example.petadoption;
 
 import Classes.Animal;
+import Classes.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -12,9 +13,11 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
+import utils.FileIO;
 import utils.Utils;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
@@ -22,8 +25,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.ResourceBundle;
 
+import static com.example.petadoption.HelloApplication.receiveObj;
+import static com.example.petadoption.HelloApplication.sendObj;
+
 public class RegisteredPetsController implements Initializable {
-    private HashMap<String, Animal> pets;
     private ArrayList<Animal> petList;
     private int counter;
 
@@ -71,6 +76,9 @@ public class RegisteredPetsController implements Initializable {
     private Button favourites;
 
     @FXML
+    private Button btnMarkAsAdopted;
+
+    @FXML
     void exit(MouseEvent event) {
         System.exit(0);
 
@@ -100,45 +108,22 @@ public class RegisteredPetsController implements Initializable {
         Utils.changeScene("Sign1st.fxml");
     }
 
-    private Animal genANumal(String line) {
-        String[] pasts = line.trim().split("##");
-        String breed = pasts[0];
-        String name = pasts[1];
-        String age = pasts[2];
-        String food = pasts[3];
-        String type = pasts[4];
-        String owner = pasts[5];
-        String proPic = pasts[6];
-        return new Animal(breed, name, age, food, type, owner, proPic);
-    }
-//    private Animal genANumal(String line){
-//        String []parts= line.trim().
-//    }
-
-
-    private void readAnimal(String path) {
-        try {
-            // Reads animal info
-            BufferedReader br = new BufferedReader(new FileReader(path));
-            String line;
-            while ((line = br.readLine()) != null) {
-                Animal a = genANumal(line);
-                if (a.getOwner().equalsIgnoreCase(HelloApplication.profile.getUsername())) {
-                    pets.put(a.getOwner(), a);
-                    petList.add(a);
-                }
-            }
-            br.close();
-        } catch (IOException ignored) {
-        }
-    }
-
     private void LoadpetsData() {
-        // Reads dog info
-        readAnimal("dog.txt");
+        try {
+            // Asking for Cat Info
+            System.out.println(" - Requesting for Animal Info");
+            sendObj.writeObject("getUploadedCat");
+            sendObj.writeObject(FileIO.readObjFromFile(Configs.userTempData));
+            petList = (ArrayList<Animal>) receiveObj.readObject();
 
-        // Reads Cat info
-        readAnimal("cat.txt");
+            // Asking for Dog Info
+            System.out.println(" - Requesting for Animal Info");
+            sendObj.writeObject("getUploadedDog");
+            sendObj.writeObject(FileIO.readObjFromFile(Configs.userTempData));
+            petList.addAll((ArrayList<Animal>) receiveObj.readObject());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 
@@ -151,7 +136,7 @@ public class RegisteredPetsController implements Initializable {
         txtbreed.setText(p.getBreedName());
         txtage.setText(p.getAge());
         txtfood.setText(p.getFoodhabit());
-        imgShow.setFill(new ImagePattern(new Image("file:" + p.getAnimalPic())));
+        imgShow.setFill(new ImagePattern(new Image("file:" + Utils.imgTotempImg(p.getAnimalPic()))));
 
         // next button
         if (counter + 1 == petList.size())
@@ -182,11 +167,10 @@ public class RegisteredPetsController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         txtname.setText(HelloApplication.profile.getName());
         txtusername.setText(HelloApplication.profile.getUsername());
-        profilepic.setFill(new ImagePattern(new Image("file:" + HelloApplication.profile.getProfilePic())));
+        profilepic.setFill(new ImagePattern(new Image("file:" + Utils.getUserProfilePic())));
 
         // loading data
         petList = new ArrayList<>();
-        pets = new HashMap<>();
         LoadpetsData();
 
         // Set first data
@@ -199,5 +183,13 @@ public class RegisteredPetsController implements Initializable {
             maInPane.setVisible(false);
             aPane.setVisible(true);
         }
+    }
+
+    @FXML
+    void btnMarkAsAdoptedAction(ActionEvent event) {
+
+    }
+
+    public void switchtoRegpets(ActionEvent actionEvent) {
     }
 }

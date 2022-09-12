@@ -14,6 +14,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import utils.Operations;
 import utils.Utils;
 
 import java.io.File;
@@ -120,53 +121,28 @@ public class HelloController implements Initializable {
 
     public void switchtoSceneProfile(ActionEvent e) throws IOException {
 
-        String name = "";
-        String username = "";
-        String password = "";
-        String email = "";
-        String location = "";
-        String contact = "";
-        String profilePic = "";
-        File f = new File("data.txt");
-        Scanner sc = new Scanner(f);
-        String USername = uTF.getText();
+        String str = uTF.getText();
         String pass = pTF.getText();
         String ShowPass = tfshowPass.getText();
 
-        String line = " ";
+        // input Checking
         int flag = 0;
+        if (str.isEmpty() || (pass.isEmpty() && ShowPass.isEmpty()))
+            flag = -1;
 
-        while (sc.hasNext()) {
-            line = sc.nextLine();
-            String parts[] = line.split("##");
-            name = parts[0];
-            username = parts[1];
-            password = parts[2];
-            email = parts[3];
-            location = parts[4];
-            contact = parts[5];
-            profilePic = parts[6];
-            if (username.equals(USername) && (password.equals(pass)) || password.equals(ShowPass)) {
-                System.out.printf(profilePic);
-                HelloApplication.profile = new User(name, username, password, email, location, contact, profilePic);
+        String selectedPass = ChSP.isSelected() ? ShowPass: pass;
+        User user = new User(str, selectedPass);
 
-                Utils.changeScene("Profile.fxml");
-            } else if (USername.isEmpty() || (pass.isEmpty() && ShowPass.isEmpty())) {
-                flag = -1;
-            }
-        }
-
-        if (flag == -1) {
-
+        if (flag == -1)
             Wrong.setText("Please Enter the Information");
+        else {
+            flag = Operations.signIn(user, HelloApplication.receiveObj, HelloApplication.sendObj) ? 1: 0;
 
-        } else {
-
-            Wrong.setText("The username or password is incorrect");
-
+            if(flag == 1)
+                Utils.changeScene(Configs.profileScene);
+            else
+                Wrong.setText("The username or password is incorrect");
         }
-
-
     }
 
     public void switchtoSceneCatReg(ActionEvent e) throws IOException {

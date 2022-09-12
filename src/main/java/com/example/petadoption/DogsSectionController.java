@@ -18,6 +18,9 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import static com.example.petadoption.HelloApplication.receiveObj;
+import static com.example.petadoption.HelloApplication.sendObj;
+
 public class DogsSectionController implements Initializable {
 
     @FXML
@@ -71,12 +74,12 @@ public class DogsSectionController implements Initializable {
         int j = 0;
         if(forward) {
             for (int i = currentPosition; i < list.size() && i < currentPosition + 6; i++, j++, count++)
-                rectangles[j].setFill(new ImagePattern(new Image("file:" + list.get(i).getAnimalPic())));
+                rectangles[j].setFill(new ImagePattern(new Image("file:" + Utils.imgTotempImg(list.get(i).getAnimalPic()))));
         } else {
             int sub = count % 6;
             count -= sub;
             for (int i = currentPosition - sub - 6; j < 6; i++, j++, count--)
-                rectangles[j].setFill(new ImagePattern(new Image("file:" + list.get(i).getAnimalPic())));
+                rectangles[j].setFill(new ImagePattern(new Image("file:" + Utils.imgTotempImg(list.get(i).getAnimalPic()))));
         }
         // updating button state
         if(forward) {
@@ -97,20 +100,29 @@ public class DogsSectionController implements Initializable {
 
     }
 
-    private Animal getAnimal(String str) {
-        String[] p = str.split("##");
-        return new Animal(p[0], p[1], p[2], p[3], p[4], p[5], p[6]);
+    private void readData() {
+        try {
+            // Asking for Cat Info
+            System.out.println(" - Requesting for Dog Info");
+            sendObj.writeObject("getUploadedDog");
+            sendObj.writeObject(null);
+            list = (ArrayList<Animal>) receiveObj.readObject();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
-    private void readData(String path) {
-        try {
-            BufferedReader br = new BufferedReader(new FileReader(path));
-            String line;
-            while ((line = br.readLine()) != null) {
-                list.add(getAnimal(line));
-            }
-            br.close();
-        } catch (Exception ignored) {}
+    @FXML
+    void viewProfileAction(MouseEvent event) {
+        int i = 0;
+        Rectangle r = (Rectangle) event.getSource();
+        for(Rectangle rr: rectangles)
+            if (r == rr) break;
+            else i++;
+        int rev = count-i;
+        HelloApplication.animal = list.get(count - rev);
+        System.out.println(HelloApplication.animal.getBreedName());
+        Utils.changeScene("AnimalPRofile.fxml");
     }
 
     private void Init() {
@@ -120,8 +132,7 @@ public class DogsSectionController implements Initializable {
         rectangles = new Rectangle[]{profile1, profile2, profile3, profile4, profile5, profile6};
 
         // load data
-//        readData("cat.txt");
-        readData("dog.txt");
+        readData();
 
         // Button Configs
         changeButtonState();

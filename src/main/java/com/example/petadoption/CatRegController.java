@@ -9,6 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
+import utils.Operations;
 import utils.Utils;
 
 import java.io.BufferedWriter;
@@ -96,9 +97,8 @@ public class CatRegController {
 
 
         boolean isEmpty = false;
-        AnimalType = "Cat";
+        AnimalType = "cat";
 
-        BufferedWriter f = new BufferedWriter(new FileWriter("cat.txt", true));
         String BreedName = tfBname.getText();
         String PetName = tfPname.getText();
         String Age = tfAge.getText();
@@ -131,19 +131,8 @@ public class CatRegController {
         }
         if (!isEmpty) {
 //            Animal cat= new Animal(BreedName,PetName,Age,FoodHabit,AnimalType,HelloApplication.profile.getUsername());
-            String profilePic = Utils.upload(file, "uploads/img/");
-            Animal Cats = new Animal(BreedName, PetName, Age, FoodHabit, AnimalType, HelloApplication.profile.getName(), profilePic);
-
-            f.write(BreedName + "##");
-            f.write(PetName + "##");
-            f.write(Age + "##");
-            f.write(FoodHabit + "##");
-            f.write(AnimalType + "##");
-            f.write(HelloApplication.profile.getUsername() + "##");
-            f.write(profilePic);
-
-            f.newLine();
-            f.close();
+            Animal cat = new Animal(BreedName, PetName, Age, FoodHabit, AnimalType, HelloApplication.profile.getUsername(), Utils.fileToImg(file));
+            Operations.addAnimal(cat);
             Utils.changeScene("Sign1st.fxml");
         }
     }
