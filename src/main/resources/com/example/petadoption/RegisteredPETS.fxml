@@ -134,6 +134,7 @@
                   <Font name="System Bold Italic" size="12.0" />
                </font>
             </Text>
+            <Button fx:id="btnMarkAsAdopted" layoutX="93.0" layoutY="274.0" mnemonicParsing="false" onAction="#btnMarkAsAdoptedAction" text="Mark as Adopted" />
          </children>
       </AnchorPane>
       <Button fx:id="Logout" layoutX="738.0" layoutY="576.0" mnemonicParsing="false" onAction="#switchtoSceneHelloview" styleClass="button2" stylesheets="@../../../CSS/Button.css" text="Log out" />
