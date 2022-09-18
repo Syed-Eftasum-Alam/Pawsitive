@@ -12,6 +12,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
+import utils.Operations;
 import utils.Utils;
 
 import java.io.IOException;
@@ -21,7 +22,7 @@ import java.util.ResourceBundle;
 public class AnimalProfile implements Initializable {
 
     @FXML
-    private Button AddFav;
+    private Button btnAddFav;
 
     @FXML
     private Text Age;
@@ -70,6 +71,8 @@ public class AnimalProfile implements Initializable {
     @FXML
     private Button btnReqForAdopt;
 
+    boolean existInFavorite;
+
     @FXML
     void exit(MouseEvent event) {
         System.exit(0);
@@ -104,10 +107,28 @@ public class AnimalProfile implements Initializable {
         Utils.changeScene("Sign1st.fxml");
     }
 
+    private void updateBtnAddFavouriteText() {
+        btnAddFav.setText(existInFavorite ? "Remove From Favourite" : "Add To Favourite");
+    }
+
+
+    @FXML
+    void btnAddFavAction(ActionEvent event) throws IOException {
+        Operations.toggleFavourite(!existInFavorite);
+        existInFavorite = !existInFavorite;
+        updateBtnAddFavouriteText();
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Animal a = HelloApplication.animal;
-        AddFav.setDisable(!a.getStatus().equalsIgnoreCase("available"));
+        try {
+            existInFavorite = Operations.checkFavourite();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        btnAddFav.setDisable(!a.getStatus().equalsIgnoreCase("available"));
+        updateBtnAddFavouriteText();
         btnReqForAdopt.setDisable(!a.getStatus().equalsIgnoreCase("available"));
         breedName.setText(a.getBreedName());
         petsName.setText(a.getPetname());
