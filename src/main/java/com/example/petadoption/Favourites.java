@@ -101,7 +101,8 @@ public class Favourites implements Initializable {
             // Asking for Cat Info
             System.out.println(" - Requesting for Favorite Animal List");
             sendObj.writeObject("getFavouriteList");
-            sendObj.writeObject(FileIO.readObjFromFile(Configs.userTempData));
+            sendObj.writeObject(HelloApplication.profile);
+            if (petList != null) petList.clear();
             petList = (ArrayList<Animal>) receiveObj.readObject();
         } catch (Exception e) {
             e.printStackTrace();
@@ -153,7 +154,6 @@ public class Favourites implements Initializable {
         profilepic.setFill(new ImagePattern(new Image("file:" + Utils.getUserProfilePic())));
 
         // loading data
-        petList = new ArrayList<>();
         LoadpetsData();
 
         // Set first data
