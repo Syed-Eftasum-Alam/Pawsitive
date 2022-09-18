@@ -19,6 +19,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static com.example.petadoption.HelloApplication.sendObj;
+
 public class AnimalProfile implements Initializable {
 
     boolean existInFavorite;
@@ -103,6 +105,15 @@ public class AnimalProfile implements Initializable {
         Operations.toggleFavourite(!existInFavorite);
         existInFavorite = !existInFavorite;
         updateBtnAddFavouriteText();
+    }
+
+    @FXML
+    void btnReqForAdoptAction(ActionEvent event) throws IOException {
+        // sending registration data
+        System.out.println(" - Sending Request to Adopt Pet");
+        sendObj.writeObject("requestToAdoptPet");
+        sendObj.writeObject(HelloApplication.profile);
+        sendObj.writeObject(HelloApplication.animal);
     }
 
     @Override
