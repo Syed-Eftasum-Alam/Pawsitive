@@ -1,34 +1,36 @@
-.button{
+.button {
     -fx-background-color: #76D7C4;
     -fx-background-radius: 10 10 10 10;
-}
-.button:hover{
-    -fx-background-color: #A3E4D7;
-    -fx-background-radius: 10 10 10 10;
-    -fx-effect: dropshadow(three-pass-box,white,10,0,0,0);
-    -fx-border-width: 0;
-}
-.button:pressed
-{
-    -fx-background-color: #76D7C4;
-    -fx-background-radius: 10 10 10 10;
-    -fx-effect: dropshadow(three-pass-box,#48C9B0,10,0,0,0);
 }
 
-.button2{
-    -fx-background-color: White;
+.button:hover {
+    -fx-background-color: #A3E4D7;
     -fx-background-radius: 10 10 10 10;
-}
-.button2:hover{
-    -fx-background-color: #D0D3D4;
-    -fx-background-radius: 10 10 10 10;
-    -fx-effect: dropshadow(three-pass-box,white,10,0,0,0);
+    -fx-effect: dropshadow(three-pass-box, white, 10, 0, 0, 0);
     -fx-border-width: 0;
 }
-.button2:pressed
-{
+
+.button:pressed {
+    -fx-background-color: #76D7C4;
+    -fx-background-radius: 10 10 10 10;
+    -fx-effect: dropshadow(three-pass-box, #48C9B0, 10, 0, 0, 0);
+}
+
+.button2 {
     -fx-background-color: White;
     -fx-background-radius: 10 10 10 10;
-    -fx-effect: dropshadow(three-pass-box,#D0D3D4,10,0,0,0);
+}
+
+.button2:hover {
+    -fx-background-color: #D0D3D4;
+    -fx-background-radius: 10 10 10 10;
+    -fx-effect: dropshadow(three-pass-box, white, 10, 0, 0, 0);
+    -fx-border-width: 0;
+}
+
+.button2:pressed {
+    -fx-background-color: White;
+    -fx-background-radius: 10 10 10 10;
+    -fx-effect: dropshadow(three-pass-box, #D0D3D4, 10, 0, 0, 0);
 }
 

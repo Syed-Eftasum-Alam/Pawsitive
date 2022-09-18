@@ -23,7 +23,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.ResourceBundle;
-import java.util.Scanner;
 
 public class HelloController implements Initializable {
     HashMap<User, ArrayList<Animal>> DB;
@@ -130,15 +129,15 @@ public class HelloController implements Initializable {
         if (str.isEmpty() || (pass.isEmpty() && ShowPass.isEmpty()))
             flag = -1;
 
-        String selectedPass = ChSP.isSelected() ? ShowPass: pass;
+        String selectedPass = ChSP.isSelected() ? ShowPass : pass;
         User user = new User(str, selectedPass);
 
         if (flag == -1)
             Wrong.setText("Please Enter the Information");
         else {
-            flag = Operations.signIn(user, HelloApplication.receiveObj, HelloApplication.sendObj) ? 1: 0;
+            flag = Operations.signIn(user, HelloApplication.receiveObj, HelloApplication.sendObj) ? 1 : 0;
 
-            if(flag == 1)
+            if (flag == 1)
                 Utils.changeScene(Configs.profileScene);
             else
                 Wrong.setText("The username or password is incorrect");

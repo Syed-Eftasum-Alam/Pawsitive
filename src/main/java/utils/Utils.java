@@ -56,19 +56,19 @@ public class Utils {    private static double xOffset;
 
     public static void changeScene(String page) {
         try {
-            HelloApplication.root = FXMLLoader.load(Objects.requireNonNull(HelloApplication.class.getResource(page)));
-            HelloApplication.scene = new Scene(HelloApplication.root);
+            Parent root = FXMLLoader.load(Objects.requireNonNull(HelloApplication.class.getResource(page)));
+            Scene scene = new Scene(root);
 
             // Make Scene Transparent
-            HelloApplication.scene.setFill(Color.TRANSPARENT);
+            scene.setFill(Color.TRANSPARENT);
 
             // Make Scene Draggable
-            makeDraggable(HelloApplication.scene);
+            makeDraggable(scene);
 
             // Apply CSS
 //            HelloApplication.root.getStylesheets().add(Objects.requireNonNull(Main.class.getResource(Configs.css)).toExternalForm());
 
-            HelloApplication.primaryStage.setScene(HelloApplication.scene);
+            HelloApplication.primaryStage.setScene(scene);
             HelloApplication.primaryStage.show();
         } catch (IOException e) {
             throw new RuntimeException(e);

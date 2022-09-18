@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="621.0" prefWidth="808.0" style="-fx-background-color: White;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.petadoption.Sign1stController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="621.0" prefWidth="808.0" style="-fx-background-color: White;" stylesheets="@../../../CSS/others.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.petadoption.Sign1stController">
    <children>
       <ImageView fitHeight="159.0" fitWidth="633.0" layoutX="175.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -24,25 +24,25 @@
             <Font name="Bodoni MT Condensed Bold Italic" size="12.0" />
          </font>
       </Button>
-      <ImageView fitHeight="104.0" fitWidth="106.0" layoutX="328.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="104.0" fitWidth="106.0" layoutX="328.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true" styleClass="img-in-btn">
          <image>
             <Image url="@../../../img/Screenshot_2022-07-22_020804-removebg-preview.png" />
          </image>
       </ImageView>
       <Button fx:id="Adopting" contentDisplay="CENTER" layoutX="494.0" layoutY="241.0" mnemonicParsing="false" onAction="#switchtoCatorDogForAdoption" prefHeight="191.0" prefWidth="213.0" stylesheets="@../../../CSS/avatar.css" textAlignment="CENTER" />
-      <ImageView fitHeight="83.0" fitWidth="106.0" layoutX="549.0" layoutY="287.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="83.0" fitWidth="106.0" layoutX="549.0" layoutY="287.0" pickOnBounds="true" preserveRatio="true" styleClass="img-in-btn">
          <image>
             <Image url="@../../../img/Screenshot_2022-07-22_020642-removebg-preview.png" />
          </image>
       </ImageView>
       <Text layoutX="323.0" layoutY="386.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Up for Adoption" textAlignment="CENTER" wrappingWidth="115.32682037353516">
          <font>
-            <Font name="Harlow Solid Italic" size="15.0" />
+            <Font name="Comic Sans MS" size="15.0" />
          </font>
       </Text>
       <Text layoutX="540.0" layoutY="386.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Want to adopt a pet">
          <font>
-            <Font name="Harlow Solid Italic" size="15.0" />
+            <Font name="Comic Sans MS" size="15.0" />
          </font>
       </Text>
       <HBox alignment="CENTER_LEFT" layoutX="-3.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="53.0" prefWidth="443.0" style="-fx-background-color: #30A58E;">
@@ -75,6 +75,9 @@
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
+               <font>
+                  <Font name="System Italic" size="18.0" />
+               </font>
             </Button>
             <Button fx:id="favourites" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchtoSceneFav" prefHeight="72.0" prefWidth="174.0" stylesheets="@../../../CSS/Button.css" text="Favourites" textFill="WHITE">
                <graphic>
@@ -87,6 +90,9 @@
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
+               <font>
+                  <Font size="18.0" />
+               </font>
             </Button>
             <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" stylesheets="@../../../CSS/Button.css" text="Activity " textFill="WHITE">
                <graphic>
@@ -99,6 +105,9 @@
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
+               <font>
+                  <Font size="18.0" />
+               </font>
             </Button>
             <Button fx:id="RegPets" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchtoRegpets" prefHeight="72.0" prefWidth="174.0" stylesheets="@../../../CSS/Button.css" text="Registered Pets" textFill="WHITE">
                <graphic>
@@ -111,6 +120,9 @@
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
+               <font>
+                  <Font name="System Italic" size="18.0" />
+               </font>
             </Button>
          </children>
       </VBox>
@@ -123,9 +135,9 @@
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </padding>
       </HBox>
-      <Text layoutX="385.0" layoutY="499.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Find your new friends" wrappingWidth="213.0">
+      <Text layoutX="360.0" layoutY="509.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Find your new friends" wrappingWidth="282.333251953125">
          <font>
-            <Font name="Harlow Solid Italic" size="22.0" />
+            <Font name="Harlow Solid Italic Italic" size="30.0" />
          </font>
       </Text>
       <Button fx:id="Logout" layoutX="729.0" layoutY="571.0" mnemonicParsing="false" onAction="#switchtoSceneHelloview" styleClass="button2" stylesheets="@../../../CSS/Button.css" text="Log out" />

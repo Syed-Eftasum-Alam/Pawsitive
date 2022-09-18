@@ -10,11 +10,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
-import utils.FileIO;
 import utils.Utils;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -78,11 +75,12 @@ public class CatsSectionController implements Initializable {
 
     @FXML
     private Text bname6;
-
     // Data
     private int count;
     private ArrayList<Animal> list;
-    Rectangle[] rectangles;
+    private Rectangle[] rectangles;
+    private Text[] breadNames;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -92,22 +90,30 @@ public class CatsSectionController implements Initializable {
     // added data to rectangle
     private void refreshData(int currentPosition, boolean forward) {
         int j = 0;
-        if(forward) {
-            for (int i = currentPosition; i < list.size() && i < currentPosition + 6; i++, j++, count++)
+        if (forward) {
+            for (int i = currentPosition; i < list.size() && i < currentPosition + 6; i++, j++, count++) {
                 rectangles[j].setFill(new ImagePattern(new Image("file:" + Utils.imgTotempImg(list.get(i).getAnimalPic()))));
+                breadNames[j].setText(list.get(i).getBreedName());
+            }
         } else {
             int sub = count % 6;
             count -= sub;
-            for (int i = currentPosition - sub - 6; j < 6; i++, j++, count--)
+            for (int i = currentPosition - sub - 6; j < 6; i++, j++, count--) {
                 rectangles[j].setFill(new ImagePattern(new Image("file:" + Utils.imgTotempImg(list.get(i).getAnimalPic()))));
+                breadNames[j].setText(list.get(i).getBreedName());
+            }
         }
         // updating button state
-        if(forward) {
-            for(int i = j; i < 6; i++)
+        if (forward) {
+            for (int i = j; i < 6; i++) {
                 rectangles[i].setVisible(false);
+                breadNames[i].setVisible(false);
+            }
         } else {
-            for(int i = 0; i < 6; i++)
+            for (int i = 0; i < 6; i++) {
                 rectangles[i].setVisible(true);
+                breadNames[i].setVisible(false);
+            }
         }
         changeButtonState();
     }
@@ -137,10 +143,10 @@ public class CatsSectionController implements Initializable {
     void viewProfileAction(MouseEvent event) {
         int i = 0;
         Rectangle r = (Rectangle) event.getSource();
-        for(Rectangle rr: rectangles)
+        for (Rectangle rr : rectangles)
             if (r == rr) break;
             else i++;
-            int rev = count-i;
+        int rev = count - i;
         HelloApplication.animal = list.get(count - rev);
         System.out.println(HelloApplication.animal.getBreedName());
         Utils.changeScene("AnimalPRofile.fxml");
@@ -152,6 +158,7 @@ public class CatsSectionController implements Initializable {
         count = 0;
         list = new ArrayList<>();
         rectangles = new Rectangle[]{profile1, profile2, profile3, profile4, profile5, profile6};
+        breadNames = new Text[]{bname1, bname2, bname3, bname4, bname5, bname6};
 
         // load data
         readData();
@@ -183,6 +190,7 @@ public class CatsSectionController implements Initializable {
     void exit(MouseEvent event) {
         System.exit(0);
     }
+
     @FXML
     public void switchtoSceneFav(ActionEvent e) throws IOException {
         Utils.changeScene("favourite.fxml");

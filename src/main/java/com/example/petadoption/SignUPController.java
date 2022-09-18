@@ -1,6 +1,5 @@
 package com.example.petadoption;
 
-import Classes.Img;
 import Classes.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,12 +11,8 @@ import javafx.stage.FileChooser;
 import utils.Operations;
 import utils.Utils;
 
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Scanner;
 
 public class SignUPController {
     private File file;
@@ -94,7 +89,7 @@ public class SignUPController {
             warning.setText("File not Supported");
         } else
             warning.setText("");
-            file = selectedFile;
+        file = selectedFile;
     }
 
     @FXML
@@ -119,7 +114,7 @@ public class SignUPController {
         String location = tflocation.getText();
         String contact = tfcontact.getText();
 
-        if(!Utils.validateEmail(Email)) {
+        if (!Utils.validateEmail(Email)) {
             warning.setText("Invalid Email Address!");
             return;
         }

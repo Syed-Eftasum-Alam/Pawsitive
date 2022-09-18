@@ -58,6 +58,7 @@ public class CatorDogForAdoption {
 
         HelloApplication.primaryStage.setIconified(true);
     }
+
     @FXML
     public void switchtoSceneFav(ActionEvent e) throws IOException {
         Utils.changeScene("favourite.fxml");

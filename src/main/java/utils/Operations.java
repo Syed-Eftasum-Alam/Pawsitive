@@ -69,4 +69,29 @@ public class Operations {
             e.printStackTrace();
         }
     }
+
+    public static void updatePetStatus(Animal a) {
+        try {
+            // sending registration data
+            System.out.println(" - Sending Animal Info");
+            System.out.println(" - Requesting for Update Animal Availability");
+            sendObj.writeObject("updatePetStatus");
+            sendObj.writeObject(a);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void toggleFavourite(boolean add) throws IOException {
+        HelloApplication.sendObj.writeObject(add ? "addToFavourite": "removeFromFavourite");
+        HelloApplication.sendObj.writeObject(HelloApplication.profile);
+        HelloApplication.sendObj.writeObject(HelloApplication.animal);
+    }
+
+    public static boolean checkFavourite() throws IOException, ClassNotFoundException {
+        sendObj.writeObject("checkFavourite");
+        HelloApplication.sendObj.writeObject(HelloApplication.profile);
+        HelloApplication.sendObj.writeObject(HelloApplication.animal);
+        return (boolean) receiveObj.readObject();
+    }
 }

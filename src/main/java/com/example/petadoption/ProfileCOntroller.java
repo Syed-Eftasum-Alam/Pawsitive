@@ -1,6 +1,5 @@
 package com.example.petadoption;
 
-import Classes.Img;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -69,6 +68,7 @@ public class ProfileCOntroller implements Initializable {
     public void switchtoSceneSignin1(ActionEvent e) throws IOException {
         Utils.changeScene("Sign1st.fxml");
     }
+
     @FXML
     public void switchtoSceneFav(ActionEvent e) throws IOException {
         Utils.changeScene("favourite.fxml");

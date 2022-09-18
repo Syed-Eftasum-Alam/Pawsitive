@@ -1,7 +1,6 @@
 package com.example.petadoption;
 
 import Classes.Animal;
-import Classes.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -14,54 +13,43 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import utils.FileIO;
+import utils.Operations;
 import utils.Utils;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.ResourceBundle;
 
 import static com.example.petadoption.HelloApplication.receiveObj;
 import static com.example.petadoption.HelloApplication.sendObj;
 
 public class RegisteredPetsController implements Initializable {
+    Animal currentAnimal;
     private ArrayList<Animal> petList;
     private int counter;
-
     @FXML
     private Button RegPets;
-
     @FXML
     private Button Logout;
-
     @FXML
     private Button activity;
-
     @FXML
     private Button profile;
-
     @FXML
     private Circle profilepic;
     @FXML
     private Text txtname;
-
     @FXML
     private Text txtusername;
     @FXML
     private Text txtage;
-
     @FXML
     private Text txtbreed;
-
     @FXML
     private Text txtfood;
     @FXML
     private Text txtpet;
-
     @FXML
     private Button previous;
     @FXML
@@ -74,7 +62,6 @@ public class RegisteredPetsController implements Initializable {
     private Rectangle imgShow;
     @FXML
     private Button favourites;
-
     @FXML
     private Button btnMarkAsAdopted;
 
@@ -98,6 +85,7 @@ public class RegisteredPetsController implements Initializable {
     void switchtoSceneProfile(ActionEvent e) throws IOException {
         Utils.changeScene("Profile.fxml");
     }
+
     @FXML
     public void switchtoSceneFav(ActionEvent e) throws IOException {
         Utils.changeScene("favourite.fxml");
@@ -129,6 +117,7 @@ public class RegisteredPetsController implements Initializable {
 
     private void updateData(int counter) {
         Animal p = petList.get(counter);
+        currentAnimal = p;
         previous.setDisable(true);
 
         // Set Info
@@ -137,6 +126,7 @@ public class RegisteredPetsController implements Initializable {
         txtage.setText(p.getAge());
         txtfood.setText(p.getFoodhabit());
         imgShow.setFill(new ImagePattern(new Image("file:" + Utils.imgTotempImg(p.getAnimalPic()))));
+        btnMarkAsAdopted.setDisable(!p.getStatus().equalsIgnoreCase("available"));
 
         // next button
         if (counter + 1 == petList.size())
@@ -187,7 +177,8 @@ public class RegisteredPetsController implements Initializable {
 
     @FXML
     void btnMarkAsAdoptedAction(ActionEvent event) {
-
+        Operations.updatePetStatus(currentAnimal);
+        btnMarkAsAdopted.setDisable(true);
     }
 
     public void switchtoRegpets(ActionEvent actionEvent) {
