@@ -30,7 +30,10 @@
             <Image url="@../../../img/background.jpg" />
          </image>
       </ImageView>
-      <TextField fx:id="uTF" layoutX="63.0" layoutY="227.0" prefHeight="35.0" prefWidth="387.0" promptText="Email" />
+      <TextField fx:id="uTF" layoutX="63.0" layoutY="227.0" prefHeight="35.0" prefWidth="387.0" promptText="Email">
+         <font>
+            <Font size="14.0" />
+         </font></TextField>
       <Button fx:id="SignIn" layoutX="126.0" layoutY="453.0" mnemonicParsing="false" onAction="#switchtoSceneProfile" prefHeight="41.0" prefWidth="261.0" styleClass="pane3" stylesheets="@../../../CSS/loginButton.css" text="Sign In" textFill="WHITE">
          <graphic>
             <ImageView fitHeight="25.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
@@ -145,7 +148,10 @@
          </font>
       </Text>
       <TextField fx:id="tfshowPass" layoutX="63.0" layoutY="288.0" prefHeight="35.0" prefWidth="387.0" />
-      <PasswordField fx:id="pTF" layoutX="63.0" layoutY="288.0" prefHeight="35.0" prefWidth="387.0" promptText="Password" />
+      <PasswordField fx:id="pTF" layoutX="63.0" layoutY="288.0" prefHeight="35.0" prefWidth="387.0" promptText="Password">
+         <font>
+            <Font size="14.0" />
+         </font></PasswordField>
       <CheckBox fx:id="ChSP" layoutX="456.0" layoutY="299.0" mnemonicParsing="false" onAction="#changevisibility" prefHeight="20.0" prefWidth="20.0">
          <font>
             <Font size="9.0" />

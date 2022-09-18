@@ -1,0 +1,12 @@
+
+.img-in-btn:hover {
+    -fx-background-color: #F5B041;
+    -fx-background-radius: 30 30 30 30;
+    -fx-effect: dropshadow(three-pass-box, #E5EAE9, 0, 0, 0, 5);
+}
+
+.img-in-btn:pressed {
+    -fx-background-color: #CACFD2;
+    -fx-background-radius: 30 30 30 30;
+    -fx-effect: dropshadow(three-pass-box, #E5EAE9, 0, 0, 0, 5);
+}
