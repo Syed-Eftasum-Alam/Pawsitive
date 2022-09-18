@@ -30,7 +30,7 @@
             <Image url="@../../../img/background.jpg" />
          </image>
       </ImageView>
-      <TextField fx:id="uTF" layoutX="63.0" layoutY="227.0" prefHeight="35.0" prefWidth="387.0" promptText="Username" />
+      <TextField fx:id="uTF" layoutX="63.0" layoutY="227.0" prefHeight="35.0" prefWidth="387.0" promptText="Email" />
       <Button fx:id="SignIn" layoutX="126.0" layoutY="453.0" mnemonicParsing="false" onAction="#switchtoSceneProfile" prefHeight="41.0" prefWidth="261.0" styleClass="pane3" stylesheets="@../../../CSS/loginButton.css" text="Sign In" textFill="WHITE">
          <graphic>
             <ImageView fitHeight="25.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
@@ -44,25 +44,25 @@
          </font></Button>
       <AnchorPane layoutX="560.0" layoutY="64.0" prefHeight="539.0" prefWidth="261.0" styleClass="pane3" stylesheets="@../../../CSS/b2.css">
          <children>
-            <ImageView fitHeight="122.0" fitWidth="169.0" layoutX="68.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="122.0" fitWidth="169.0" layoutX="35.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../img/dog-cat-bunny-bird-love-removebg-preview.png" />
                </image>
             </ImageView>
-            <Text layoutX="68.0" layoutY="235.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4 PAWsitive">
+            <Text layoutX="35.0" layoutY="235.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4 PAWsitive">
                <font>
                   <Font name="Gabriola" size="48.0" />
                </font>
             </Text>
-            <Line endX="100.0" layoutX="161.0" layoutY="250.0" startX="-113.0" />
-            <Line endX="47.0" layoutX="161.0" layoutY="257.0" startX="-61.0" />
-            <Line endX="31.0" layoutX="155.0" layoutY="264.0" startX="-30.0" />
-            <Text fill="WHITE" layoutX="61.0" layoutY="293.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Find your new friend" wrappingWidth="193.0">
+            <Line endX="100.0" layoutX="130.0" layoutY="250.0" startX="-113.0" />
+            <Line endX="47.0" layoutX="130.0" layoutY="257.0" startX="-61.0" />
+            <Line endX="31.0" layoutX="124.0" layoutY="264.0" startX="-30.0" />
+            <Text fill="WHITE" layoutX="28.0" layoutY="293.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Find your new friend" wrappingWidth="193.0">
                <font>
                   <Font name="Harlow Solid Italic" size="22.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="119.0" layoutY="379.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New here?">
+            <Text fill="WHITE" layoutX="86.0" layoutY="379.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New here?">
                <font>
                   <Font name="Comic Sans MS Bold Italic" size="14.0" />
                </font>
@@ -144,7 +144,7 @@
             <Font name="Times New Roman Bold Italic" size="15.0" />
          </font>
       </Text>
-      <TextField fx:id="tfshowPass" layoutX="63.0" layoutY="298.0" prefHeight="25.0" prefWidth="387.0" />
+      <TextField fx:id="tfshowPass" layoutX="63.0" layoutY="288.0" prefHeight="35.0" prefWidth="387.0" />
       <PasswordField fx:id="pTF" layoutX="63.0" layoutY="288.0" prefHeight="35.0" prefWidth="387.0" promptText="Password" />
       <CheckBox fx:id="ChSP" layoutX="456.0" layoutY="299.0" mnemonicParsing="false" onAction="#changevisibility" prefHeight="20.0" prefWidth="20.0">
          <font>
