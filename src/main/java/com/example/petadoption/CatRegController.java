@@ -12,9 +12,7 @@ import javafx.stage.FileChooser;
 import utils.Operations;
 import utils.Utils;
 
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 
 public class CatRegController {

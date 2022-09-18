@@ -15,8 +15,6 @@ import javafx.scene.text.Text;
 import utils.FileIO;
 import utils.Utils;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -27,40 +25,32 @@ import static com.example.petadoption.HelloApplication.receiveObj;
 import static com.example.petadoption.HelloApplication.sendObj;
 
 public class Favourites implements Initializable {
+    Animal currentAnimal;
     private HashMap<String, Animal> pets;
     private ArrayList<Animal> petList;
     private int counter;
-
     @FXML
     private Button RegPets;
-
     @FXML
     private Button Logout;
-
     @FXML
     private Button activity;
-
     @FXML
     private Button profile;
-
     @FXML
     private Circle profilepic;
     @FXML
     private Text txtname;
-
     @FXML
     private Text txtusername;
     @FXML
     private Text txtage;
-
     @FXML
     private Text txtbreed;
-
     @FXML
     private Text txtfood;
     @FXML
     private Text txtpet;
-
     @FXML
     private Button previous;
     @FXML
@@ -73,7 +63,6 @@ public class Favourites implements Initializable {
     private Rectangle imgShow;
     @FXML
     private Button favourites;
-    Animal currentAnimal;
 
     @FXML
     void exit(MouseEvent event) {
@@ -95,6 +84,7 @@ public class Favourites implements Initializable {
     void switchtoSceneProfile(ActionEvent e) throws IOException {
         Utils.changeScene("Profile.fxml");
     }
+
     @FXML
     void switchtoRegpets(ActionEvent e) throws IOException {
         Utils.changeScene("RegisteredPETS.fxml");
@@ -104,7 +94,6 @@ public class Favourites implements Initializable {
     void switchtoSceneSignin1(ActionEvent e) throws IOException {
         Utils.changeScene("Sign1st.fxml");
     }
-
 
 
     private void LoadpetsData() {

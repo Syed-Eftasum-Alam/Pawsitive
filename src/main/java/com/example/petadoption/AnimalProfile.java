@@ -21,57 +21,41 @@ import java.util.ResourceBundle;
 
 public class AnimalProfile implements Initializable {
 
+    boolean existInFavorite;
     @FXML
     private Button btnAddFav;
-
     @FXML
     private Text Age;
-
     @FXML
     private Button Logout;
-
     @FXML
     private Button RegPets;
-
     @FXML
     private AnchorPane aPane;
-
     @FXML
     private Button activity;
-
     @FXML
     private Text breedName;
-
     @FXML
     private Text contactNumber;
-
     @FXML
     private Button favourites;
-
     @FXML
     private Text foodHabit;
-
     @FXML
     private Text location;
-
     @FXML
     private Text ownersName;
-
     @FXML
     private Text txtAdoptionStatus;
-
     @FXML
     private Text petsName;
-
     @FXML
     private Button profile;
     @FXML
     private Rectangle animalPic;
-
     @FXML
     private Button btnReqForAdopt;
-
-    boolean existInFavorite;
 
     @FXML
     void exit(MouseEvent event) {
@@ -83,6 +67,7 @@ public class AnimalProfile implements Initializable {
     void minimize(MouseEvent e) {
         HelloApplication.primaryStage.setIconified(true);
     }
+
     @FXML
     void switchtoRegpets(ActionEvent e) throws IOException {
         Utils.changeScene("RegisteredPETS.fxml");
@@ -97,6 +82,7 @@ public class AnimalProfile implements Initializable {
     public void switchtoSceneProfile(ActionEvent e) throws IOException {
         Utils.changeScene("Profile.fxml");
     }
+
     @FXML
     public void switchtoSceneFav(ActionEvent e) throws IOException {
         Utils.changeScene("favourite.fxml");
@@ -148,6 +134,7 @@ public class AnimalProfile implements Initializable {
             location.setText(owner.getLocation());
             contactNumber.setText(owner.getContact());
             btnReqForAdopt.setVisible(!a.getOwner().equals(HelloApplication.profile.getUsername()));
-        } catch (Exception ignored) {}
+        } catch (Exception ignored) {
+        }
     }
 }
