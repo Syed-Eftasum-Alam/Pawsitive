@@ -37,12 +37,12 @@
       </ImageView>
       <Text layoutX="323.0" layoutY="386.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Up for Adoption" textAlignment="CENTER" wrappingWidth="115.32682037353516">
          <font>
-            <Font name="Harlow Solid Italic" size="15.0" />
+            <Font name="Comic Sans MS" size="15.0" />
          </font>
       </Text>
       <Text layoutX="540.0" layoutY="386.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Want to adopt a pet">
          <font>
-            <Font name="Harlow Solid Italic" size="15.0" />
+            <Font name="Comic Sans MS" size="15.0" />
          </font>
       </Text>
       <HBox alignment="CENTER_LEFT" layoutX="-3.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="53.0" prefWidth="443.0" style="-fx-background-color: #30A58E;">
@@ -75,6 +75,9 @@
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
+               <font>
+                  <Font name="System Italic" size="18.0" />
+               </font>
             </Button>
             <Button fx:id="favourites" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchtoSceneFav" prefHeight="72.0" prefWidth="174.0" stylesheets="@../../../CSS/Button.css" text="Favourites" textFill="WHITE">
                <graphic>
@@ -87,6 +90,9 @@
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
+               <font>
+                  <Font size="18.0" />
+               </font>
             </Button>
             <Button alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="72.0" prefWidth="174.0" stylesheets="@../../../CSS/Button.css" text="Activity " textFill="WHITE">
                <graphic>
@@ -123,9 +129,9 @@
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </padding>
       </HBox>
-      <Text layoutX="385.0" layoutY="499.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Find your new friends" wrappingWidth="213.0">
+      <Text layoutX="360.0" layoutY="509.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Find your new friends" wrappingWidth="282.333251953125">
          <font>
-            <Font name="Harlow Solid Italic" size="22.0" />
+            <Font name="Harlow Solid Italic Italic" size="30.0" />
          </font>
       </Text>
       <Button fx:id="Logout" layoutX="729.0" layoutY="571.0" mnemonicParsing="false" onAction="#switchtoSceneHelloview" styleClass="button2" stylesheets="@../../../CSS/Button.css" text="Log out" />
