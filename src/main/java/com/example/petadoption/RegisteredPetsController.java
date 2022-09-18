@@ -140,7 +140,7 @@ public class RegisteredPetsController implements Initializable {
         txtage.setText(p.getAge());
         txtfood.setText(p.getFoodhabit());
         imgShow.setFill(new ImagePattern(new Image("file:" + Utils.imgTotempImg(p.getAnimalPic()))));
-        btnMarkAsAdopted.setVisible(p.getStatus().equalsIgnoreCase("available"));
+        btnMarkAsAdopted.setDisable(!p.getStatus().equalsIgnoreCase("available"));
 
         // next button
         if (counter + 1 == petList.size())
@@ -192,6 +192,7 @@ public class RegisteredPetsController implements Initializable {
     @FXML
     void btnMarkAsAdoptedAction(ActionEvent event) {
         Operations.updatePetStatus(currentAnimal);
+        btnMarkAsAdopted.setDisable(true);
     }
 
     public void switchtoRegpets(ActionEvent actionEvent) {

@@ -78,7 +78,6 @@ public class AnimalProfile implements Initializable {
 
     @FXML
     void minimize(MouseEvent e) {
-
         HelloApplication.primaryStage.setIconified(true);
     }
     @FXML
