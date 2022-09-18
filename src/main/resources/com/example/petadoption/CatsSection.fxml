@@ -30,6 +30,9 @@
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
+               <font>
+                  <Font name="System Italic" size="18.0" />
+               </font>
             </Button>
             <Button fx:id="favourites" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchtoSceneFav" prefHeight="72.0" prefWidth="174.0" stylesheets="@../../../CSS/Button.css" text="Favourites" textFill="WHITE">
                <graphic>
@@ -98,8 +101,8 @@
       <Rectangle fx:id="profile4" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="167.0" layoutX="201.0" layoutY="319.0" onMouseClicked="#viewProfileAction" stroke="BLACK" strokeType="INSIDE" width="168.0" />
       <Rectangle fx:id="profile5" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="167.0" layoutX="397.0" layoutY="319.0" onMouseClicked="#viewProfileAction" stroke="BLACK" strokeType="INSIDE" width="168.0" />
       <Rectangle fx:id="profile6" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="167.0" layoutX="596.0" layoutY="319.0" onMouseClicked="#viewProfileAction" stroke="BLACK" strokeType="INSIDE" width="168.0" />
-      <Button fx:id="next1" layoutX="481.0" layoutY="565.0" mnemonicParsing="false" onAction="#nextActrion" text="Next" />
-      <Button fx:id="back1" layoutX="437.0" layoutY="565.0" mnemonicParsing="false" onAction="#backAction" text="Back" />
+      <Button fx:id="next1" layoutX="490.0" layoutY="565.0" mnemonicParsing="false" onAction="#nextActrion" stylesheets="@../../../CSS/avatar.css" text="Next" />
+      <Button fx:id="back1" layoutX="437.0" layoutY="565.0" mnemonicParsing="false" onAction="#backAction" stylesheets="@../../../CSS/avatar.css" text="Back" />
       <Button fx:id="Logout" layoutX="733.0" layoutY="575.0" mnemonicParsing="false" onAction="#switchtoSceneHelloview" styleClass="button2" stylesheets="@../../../CSS/Button.css" text="Log out" />
       <Text fx:id="bname1" layoutX="252.0" layoutY="272.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Breed Name" />
       <Text fx:id="bname2" layoutX="445.0" layoutY="272.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Breed Name" />

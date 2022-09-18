@@ -65,6 +65,12 @@ public class Favourites implements Initializable {
     private Button favourites;
 
     @FXML
+    private Text OwnerContact;
+
+    @FXML
+    private Text OwnerName;
+
+    @FXML
     void exit(MouseEvent event) {
         System.exit(0);
 

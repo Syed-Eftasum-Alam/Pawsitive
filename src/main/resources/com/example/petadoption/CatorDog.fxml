@@ -35,17 +35,17 @@
       </Text>
       <Text fill="#69156f" layoutX="237.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Which one do you want to give for adoption?" textAlignment="CENTER" wrappingWidth="458.2890625">
          <font>
-            <Font name="Lucida Sans Italic" size="20.0" />
+            <Font name="Century Gothic Bold Italic" size="20.0" />
          </font>
       </Text>
-      <ImageView fitHeight="66.0" fitWidth="66.0" layoutX="327.0" layoutY="292.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="107.0" fitWidth="180.0" layoutX="306.0" layoutY="253.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../img/kisspng-black-cat-kitten-emoji-sticker-butterfly-cute-cat-head-5add5f455b6e28.3185033115244572853745.png" />
+            <Image url="@../../../img/A-sticker-template-of-cat-cartoon-on-transparent-background-PNG-removebg-preview.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="59.0" fitWidth="79.0" layoutX="559.0" layoutY="292.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="107.0" fitWidth="143.0" layoutX="563.0" layoutY="253.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../img/kisspng-beagle-siberian-husky-labrador-retriever-puppy-cli-cute-dog-cliparts-5a75f895d0dd46.4579609315176807898555.png" />
+            <Image url="@../../../img/funny-dog-cartoon-character-sticker-free-vector-removebg-preview.png" />
          </image>
       </ImageView>
       <VBox layoutY="53.0" prefHeight="569.0" prefWidth="174.0" style="-fx-background-color: #45B39D;">
@@ -64,6 +64,9 @@
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
+               <font>
+                  <Font name="System Italic" size="18.0" />
+               </font>
             </Button>
             <Button fx:id="favourites" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchtoSceneFav" prefHeight="72.0" prefWidth="174.0" stylesheets="@../../../CSS/Button.css" text="Favourites" textFill="WHITE">
                <graphic>
@@ -76,6 +79,9 @@
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
+               <font>
+                  <Font name="System Italic" size="18.0" />
+               </font>
             </Button>
             <Button fx:id="activity" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchtoSceneSignin1" prefHeight="72.0" prefWidth="174.0" stylesheets="@../../../CSS/Button.css" text="Activity " textFill="WHITE">
                <graphic>
@@ -88,6 +94,9 @@
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
+               <font>
+                  <Font name="System Italic" size="18.0" />
+               </font>
             </Button>
             <Button fx:id="RegPets" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchtoRegpets" prefHeight="72.0" prefWidth="174.0" stylesheets="@../../../CSS/Button.css" text="Registered Pets" textFill="WHITE">
                <graphic>
@@ -100,6 +109,9 @@
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
+               <font>
+                  <Font name="System Italic" size="18.0" />
+               </font>
             </Button>
          </children>
       </VBox>

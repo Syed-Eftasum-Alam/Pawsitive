@@ -106,7 +106,7 @@
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
                <font>
-                  <Font size="18.0" />
+                  <Font name="System Italic" size="18.0" />
                </font>
             </Button>
             <Button fx:id="RegPets" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchtoRegpets" prefHeight="72.0" prefWidth="174.0" stylesheets="@../../../CSS/Button.css" text="Registered Pets" textFill="WHITE">
@@ -137,7 +137,7 @@
       </HBox>
       <Text layoutX="360.0" layoutY="509.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Find your new friends" wrappingWidth="282.333251953125">
          <font>
-            <Font name="Harlow Solid Italic Italic" size="30.0" />
+            <Font name="Harlow Solid Italic" size="30.0" />
          </font>
       </Text>
       <Button fx:id="Logout" layoutX="729.0" layoutY="571.0" mnemonicParsing="false" onAction="#switchtoSceneHelloview" styleClass="button2" stylesheets="@../../../CSS/Button.css" text="Log out" />

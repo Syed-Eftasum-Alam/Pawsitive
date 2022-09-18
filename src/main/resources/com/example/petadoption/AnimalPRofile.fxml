@@ -31,6 +31,9 @@
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
+               <font>
+                  <Font name="System Italic" size="18.0" />
+               </font>
             </Button>
             <Button fx:id="favourites" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchtoSceneFav" prefHeight="72.0" prefWidth="174.0" stylesheets="@../../../CSS/Button.css" text="Favourites" textFill="WHITE">
                <graphic>
@@ -43,6 +46,9 @@
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
+               <font>
+                  <Font name="System Italic" size="18.0" />
+               </font>
             </Button>
             <Button fx:id="activity" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchtoSceneSignin1" prefHeight="72.0" prefWidth="174.0" stylesheets="@../../../CSS/Button.css" text="Activity " textFill="WHITE">
                <graphic>
@@ -55,6 +61,9 @@
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
+               <font>
+                  <Font name="System Italic" size="18.0" />
+               </font>
             </Button>
             <Button fx:id="RegPets" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchtoRegpets" prefHeight="72.0" prefWidth="174.0" stylesheets="@../../../CSS/Button.css" text="Registered Pets" textFill="WHITE">
                <graphic>
@@ -67,6 +76,9 @@
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
+               <font>
+                  <Font name="System Italic" size="18.0" />
+               </font>
             </Button>
          </children>
       </VBox>
@@ -151,7 +163,7 @@
             <Font name="System Bold Italic" size="12.0" />
          </font>
       </Text>
-      <Button fx:id="btnAddFav" layoutX="339.0" layoutY="511.0" mnemonicParsing="false" onAction="#btnAddFavAction" prefHeight="25.0" prefWidth="302.0" text="Add to Favourite" />
+      <Button fx:id="btnAddFav" layoutX="339.0" layoutY="511.0" mnemonicParsing="false" onAction="#btnAddFavAction" prefHeight="25.0" prefWidth="302.0" stylesheets="@../../../CSS/avatar.css" text="Add to Favourite" />
       <Text fx:id="breedName" layoutX="308.0" layoutY="362.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Breed Name" />
       <Text fx:id="petsName" layoutX="308.0" layoutY="397.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pet's Name" />
       <Text fx:id="Age" layoutX="308.0" layoutY="430.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Age" />
@@ -159,7 +171,7 @@
       <Text fx:id="ownersName" layoutX="629.0" layoutY="362.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Owners's Name" />
       <Text fx:id="location" layoutX="630.0" layoutY="388.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Location" />
       <Text fx:id="contactNumber" layoutX="653.0" layoutY="413.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact" />
-      <Button fx:id="btnReqForAdopt" layoutX="339.0" layoutY="545.0" mnemonicParsing="false" onAction="#btnReqForAdoptAction" prefHeight="25.0" prefWidth="302.0" text="Request For Adoption" />
+      <Button fx:id="btnReqForAdopt" layoutX="339.0" layoutY="559.0" mnemonicParsing="false" onAction="#btnReqForAdoptAction" prefHeight="25.0" prefWidth="302.0" stylesheets="@../../../CSS/avatar.css" text="Request For Adoption" />
       <Text layoutX="406.0" layoutY="490.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adoption Status:">
          <font>
             <Font name="System Bold Italic" size="12.0" />
