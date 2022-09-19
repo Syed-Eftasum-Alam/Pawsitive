@@ -6,12 +6,15 @@ import Classes.User;
 import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import utils.Utils;
 
 import java.io.*;
 import java.net.Socket;
+import java.net.URISyntaxException;
+import java.util.Objects;
 
 public class HelloApplication extends Application {
     public static Animal animal;
@@ -29,10 +32,10 @@ public class HelloApplication extends Application {
     }
 
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage) throws IOException, URISyntaxException {
         // Stage Settings
         primaryStage = stage;
-//        stage.getIcons().add(new Image("D:\\Aop Project\\PetAdoption\\src\\main\\resources\\img\\dog-cat-bunny-bird-love-removebg-preview.png"));
+        stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResource(Configs.icon)).toURI().toString()));
         stage.initStyle(StageStyle.UNDECORATED);
         stage.setTitle("4 PAWsitive");
         stage.setResizable(false);
