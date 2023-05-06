@@ -9,13 +9,8 @@
 </div>
 
 <div align="center">
-  <strong> An application to adopt pets. .</strong>
+  <strong> An application to adopt pets. The project is done using Javafx and Scenebuilder </strong>
 </div>
-
-
-
-
-
 
 ## Features
     * Login /Sign-up
@@ -25,3 +20,12 @@
     * Pet detil add
     * E-mail Sent after adoption Request
     * Add Pet for adoption
+
+## Drawbacks
+    * Haven't implemented any chat system yet
+    
+## Build instructions
+    Run the pet server which is also in my profile then just run this project in your suitable ide. It will run perfectly.
+
+## Need Help?
+**Email:** [Syed Eftasum Alam](mailto:salam201133@bscse.uiu.ac.bd)
