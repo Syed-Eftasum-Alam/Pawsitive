@@ -11,3 +11,17 @@
 <div align="center">
   <strong> An application to adopt pets. .</strong>
 </div>
+
+
+
+
+
+
+## Features
+    * Login /Sign-up
+    * Search For Pets
+    * Adopt
+    * Add to favourite
+    * Pet detil add
+    * E-mail Sent after adoption Request
+    * Add Pet for adoption
